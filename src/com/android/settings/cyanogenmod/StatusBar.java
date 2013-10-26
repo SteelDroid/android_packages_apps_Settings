@@ -47,11 +47,15 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_STYLE_HIDDEN = "4";
     private static final String STATUS_BAR_STYLE_TEXT = "6";
 
+    private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
+
     private ListPreference mStatusBarClockStyle;
     private ListPreference mStatusBarBattery;
     private SystemSettingCheckBoxPreference mStatusBarBatteryShowPercent;
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarBrightnessControl;
+
+    private CheckBoxPreference mStatusBarTraffic;
 
     private ContentObserver mSettingsObserver;
 
@@ -108,6 +112,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                 onChange(selfChange, null);
             }
         };
+
+        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
+        mStatusBarTraffic.setChecked(Settings.System.getInt(resolver,
+            Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
+        mStatusBarTraffic.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -147,8 +157,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_CLOCK, clockStyle);
             mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntries()[index]);
             return true;
+        } else if (preference == mStatusBarTraffic) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver,
+            Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
         }
-
         return false;
     }
 
