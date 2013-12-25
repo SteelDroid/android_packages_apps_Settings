@@ -188,16 +188,10 @@
     <string name="bluetooth_is_discoverable_always">Discoverable</string>
     <!-- Bluetooth settings screen, Discoverable checkbox summary text -->
     <string name="bluetooth_not_discoverable">Make device discoverable</string>
-    <!-- Bluetooth settings screen, toggle fast connections (on) -->
-    <string name="bluetooth_fast_connect_on">Fast Bluetooth connections</string>
-    <!-- Bluetooth settings screen, toggle fast connections (off) -->
-    <string name="bluetooth_fast_connect_off">Normal Bluetooth connections</string>
     <!-- Bluetooth settings screen, option name to pick discoverability timeout duration (a list dialog comes up) -->
     <string name="bluetooth_visibility_timeout">Discoverable timeout</string>
     <!-- Bluetooth settings screen, Discoverable timout list dialog summary text -->
     <string name="bluetooth_visibility_timeout_summary">Set how long device will be discoverable</string>
-    <!-- Bluetooth settings screen, toggle fast connections -->
-    <string name="bluetooth_fast_connect">Fast connections</string>
     <!-- Bluetooth settings screen, check box label whether or not to allow
         bluetooth voice dialing when lock screen is up-->
     <string name="bluetooth_lock_voice_dialing">Lock voice dialing</string>
@@ -1303,8 +1297,6 @@
     <!-- About phone screen,  setting option name-->
     <string name="mod_version">Mod version</string>
     <string name="mod_version_default">Unknown</string>
-    <!-- About phone screen,  setting option name-->
-    <string name="build_date">Build date</string>
 
     <!-- About phone screen, show when a value of some status item is unavailable. -->
     <string name="device_info_not_available">Not available</string>
@@ -1324,9 +1316,9 @@
     <!-- [CHAR LIMIT=100] Main settings screen item's summary for the SD card and storage settings -->
     <string name="storage_settings_summary" product="default">Unmount SD card, view available storage</string>
     <!-- Do not translate. About phone, status item title -->
-    <string name="status_imei" translatable="false">IMEI</string>
+    <string name="status_imei">IMEI</string>
     <!-- Do not translate. About phone, status item title -->
-    <string name="status_imei_sv" translatable="false">IMEI SV</string>
+    <string name="status_imei_sv">IMEI SV</string>
     <!-- About phone, status item title.  The phone number of the current device.-->
     <string name="status_number">My phone number</string>
     <!-- About phone, status item title.  The phone MIN number of the current device.-->
@@ -1620,12 +1612,7 @@
     <string name="assisted_gps_enabled">Use server to assist GPS (uncheck to reduce network usage)</string>
     <!-- Security & location settings screen, setting summary when Assisted GPS check box is clear -->
     <string name="assisted_gps_disabled">Use server to assist GPS (uncheck to improve GPS performance)</string>
-    <!-- GPS Source selection -->
-    <string name="location_gps_source_title">GPS Source</string>
-    <string name="location_gps_source_summary">Use external bluetooth gps mouse instead of internal as location provider.</string>
-    <string name="location_gps_source_notification_title">Alert</string>
-    <string name="location_gps_source_notification">GPS source has been switched! GPS will be disabled. Please re-enable before use!</string>
-    
+
     <!-- About --> <skip />
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
     <string name="about_settings">About phone</string>
@@ -1732,8 +1719,6 @@
     <string name="lockpattern_settings_enable_summary">Must draw pattern to unlock screen</string>
     <!-- Security & location settings screen, setting check box title. This setting controls whether a visible green line is drawn as the user moves his finger around while drawing the unlock pattern.  If checked, this line is drawn.  If unchecked, there is nothing drawn so the user does not reveal his pattern while he unlocks the phone.-->
     <string name="lockpattern_settings_enable_visible_pattern_title">Use visible pattern</string>
-    <!-- Security & location settings screen, setting check box title. This setting controls whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly.  If checked, this line is drawn.  If unchecked, there is nothing drawn so the user does not reveal his pattern while he unlocks the phone.-->
-    <string name="lockpattern_settings_enable_error_path_title">Show pattern error</string>
     <!-- Security & location settings screen, setting check box title. This setting controls whether tactile feedback will be produced when the user draws the pattern.-->
     <string name="lockpattern_settings_enable_tactile_feedback_title">Use tactile feedback</string>
     <!-- Security & location settings screen, setting option name when user has never set an unlock pattern -->
@@ -1785,7 +1770,7 @@
     <!-- Applications settings screen, setting check box title. If checked, the system allows installation of applications that are downloaded from random places, such as web sites.  -->
     <string name="install_applications">Unknown sources</string>
     <!-- Applications settings screen, setting check box summary.  This is the summary for "Unknown sources" checkbox  -->
-    <string name="install_unknown_applications">Allow installation of non-Play Store applications</string>
+    <string name="install_unknown_applications">Allow installation of non-Market applications</string>
     <!-- Applications settings screen, message text of alert that appears if user selects the "Unknown sources" check box -->
     <string name="install_all_warning">Your phone and personal data are more vulnerable to attack by applications
  from unknown sources. You agree that you are solely responsible for any
@@ -2125,20 +2110,14 @@ found in the list of installed applications.</string>
     <string name="development_settings_title">Development</string>
     <!-- Development Settings summary.  The summary of the item to take the user to Development settings.  Development settings are settings meant for application developers. -->
     <string name="development_settings_summary">Set options for application development</string>
-    <!-- Setting checkbox title for Whether to enable debugging support on the phone. -->
-    <string name="enable_adb">Android debugging</string>
-    <!-- Setting checkbox summary for Whether to enable debugging support on the phone -->
-    <string name="enable_adb_summary">Allow Android debug mode (ADB)</string>
-    <!-- Setting checkbox title for Whether debugging should run over USB and Network. -->
-    <string name="adb_over_network">ADB over network</string>
-    <!-- Setting checkbox summary for Whether to enable network debugging support -->
-    <string name="adb_over_network_summary">Use debugging over Network (e.g. Wi-Fi) instead of USB. This setting is reset on reboot.</string>
-    <!-- Warning for Adb over Network -->
-    <string name="adb_over_network_warning">WARNING: When ADB over Network is enabled, your phone is open for intrusions on all connected networks, including GSM data network!\n\nOnly use this feature when you are connected on trusted networks.\n\nDo you really want to enable this function?</string>
-    <!-- Setting checkbox title for displaying debugging notification -->
-    <string name="adb_notify">Debugging notify</string>
-    <!-- Setting checkbox summary for displaying debugging notification -->
-    <string name="adb_notify_summary">Display a notification when debugging is connected</string>
+    <!-- Setting checkbox title for Whether to enable USB debugging support on the phone. -->
+    <string name="enable_adb">USB debugging</string>
+    <!-- Setting checkbox summary for Whether to enable USB debugging support on the phone -->
+    <string name="enable_adb_summary">Debug mode when USB is connected</string>
+    <!-- Setting checkbox title for displaying USB debugging notification -->
+    <string name="adb_notify">USB debugging notify</string>
+    <!-- Setting checkbox summary for displaying USB debugging notification -->
+    <string name="adb_notify_summary">Display a notification when USB debugging is connected</string>
     <!-- Setting Checkbox title whether to keep the screen on when plugged in to a power source -->
     <string name="keep_screen_on">Stay awake</string>
     <!-- setting Checkbox summary whether to keep the screen on when plugged in  -->
@@ -2313,14 +2292,14 @@ found in the list of installed applications.</string>
          selects to disable accessibility. This avoids accidental disabling. -->
     <string name="accessibility_service_disable_warning">Disable accessibility?</string>
     <!-- Title for the prompt that lets users know that they have no accessibility related apps
-         installed and that they can install TalkBack from Play Store. -->
+         installed and that they can install TalkBack from Market. -->
     <string name="accessibility_service_no_apps_title">No accessibility related applications found
         </string>
     <!-- Message for the prompt that lets users know that they have no accessibility related apps
-         installed and that they can install TalkBack from Play Store. -->
+         installed and that they can install TalkBack from Market. -->
     <string name="accessibility_service_no_apps_message">You do not have any accessibility related
-        applications installed.\n\nYou can download a screen reader for your device from Google
-        Play.\n\nClick "OK" to install the screen reader.</string>
+        applications installed.\n\nYou can download a screen reader for your device from Android
+        Market.\n\nClick "OK" to install the screen reader.</string>
 
     <!-- Accessibility settings: Power button category -->
     <string name="accessibility_power_button_category">Power button</string>
@@ -2680,13 +2659,8 @@ found in the list of installed applications.</string>
     <string name="vpn_openvpn_advanced_titlebar">Advanced Openvpn Settings</string>
     <string name="vpn_openvpn_comp_lzo">LZO compression</string>
     <string name="vpn_openvpn_comp_lzo_summary">Force LZO compression to be set to on</string>
-    <string name="vpn_openvpn_set_use_tls_auth">TLS-Auth</string>
-    <string name="vpn_openvpn_set_use_tls_auth_summary">Use a tls-auth key</string>
-    <string name="vpn_openvpn_set_tls_auth_key">TA key file location</string>
-    <string name="vpn_openvpn_set_tls_auth_key_summary"></string>
-    <string name="vpn_openvpn_set_tls_auth_key_direction">Tls-Auth key direction</string>
     <string name="vpn_openvpn_redirect_gateway_title">Redirect gateway</string>
-    <string name="vpn_openvpn_redirect_gateway_summary">Force all traffic to be routed through the VPN tunnel</string>
+    <string name="vpn_openvpn_redirect_gateway_summary">Force all traffic to berouted thru the VPN tunnel</string>
     <string name="vpn_openvpn_set_addr">Remote Sets Addresses</string>
     <string name="vpn_openvpn_set_addr_summary">Uncheck to set tunnel addresses manually</string>
     <string name="vpn_openvpn_set_local_addr">Local IP Address</string>
@@ -3052,7 +3026,7 @@ found in the list of installed applications.</string>
     <!-- Widget Picker -->
     <string name="widget_count">(%d widgets)</string>
 
-    <string name="cm_settings_title">CyanogenMod settings</string>
+    <string name="steel_settings_title">Steel Box</string>
     <string name="device_settings_title">Device settings</string>
 
     <string name="wimax_settings">4G settings</string>
@@ -3063,95 +3037,4 @@ found in the list of installed applications.</string>
     from their cell phone carrier. The use of the string is similar to the string
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
-
-    <!-- Title and Summary for PreferenceScreen to launch Enrollment -->
-    <string name ="finger_enrollment">Finger Enrollment</string>
-    <string name ="start_finger_enrollment_summary">Registers fingers for use with lock screen and other applications</string>
-
-    <!-- Summary for PreferenceScreen to launch picker for security method when there is none -->
-    <string name="lockfinger_unlock_set_unlock_launch_picker_summary">Lock screen with a pattern, finger, PIN, or password</string>
-
-    <!-- Summary for PreferenceScreen to change security method: None/Pattern/Finger/PIN/Password -->
-    <string name="lockfinger_unlock_set_unlock_launch_picker_change_summary">Change or disable pattern, finger, PIN, or password security</string>
-
-    <!--  Title and summary for preference that guides the user through creating an unlock finger -->
-    <string name="lockfinger_unlock_set_unlock_finger_title">Finger</string>
-    <string name="lockfinger_unlock_set_unlock_finger_summary">Swipe finger to unlock screen</string>
-
-    <!-- Title for unlock finger settings screen -->
-    <string name="lockfinger_finger_settings_title">Screen unlock fingerprint</string>
-
-    <!-- Title for preference that sets or changes unlock finger -->
-    <string name="lockfinger_set_finger_unlock_title">Set fingerprint unlock</string>
-    <string name="lockfinger_change_finger_unlock_title">Change fingerprint unlock</string>
-
-    <!-- Title and summary for preference that toggles the finger unlock -->
-    <string name="lockfinger_toggle_unlock_finger_title">Require fingerprint</string>
-    <string name="lockfinger_toggle_unlock_finger_summary">Must use fingerprint to unlock screen</string>
-
-    <!-- Title for preference that start True Suite Administration -->
-    <string name="lockfinger_dbadmin_title">True Suite Administration</string>
-
-    <!-- Summary shown under unlock_disable_lock_title when finger is in use and can be removed -->
-    <string name="lockfinger_unlock_disable_lock_finger_summary">Remove unlock finger</string>
-
-    <!-- Title shown on security settings to allow the user to change their lockscreen finger -->
-    <string name="unlock_change_lock_finger_title">Change unlock finger</string>
-
-    <!-- Toast shown if setting finger was successful -->
-    <string name="lockpassword_finger_set_toast">Finger has been set</string>
-
-    <!-- Security & location settings screen, setting option name for finger -->
-    <string name="lockpattern_change_lock_finger_label">Change unlock finger</string>
-
-    <!-- Unlock finger settings screen, Toast shown if there is a semaphore failure. -->
-    <string name="lockfinger_semaphore_failure_toast">Semaphore failure</string>
-
-    <!-- Unlock finger settings screen, Toast shown a successful enrollment. -->
-    <string name="lockfinger_enrollment_succeeded_toast">Enrollment Succeeded.</string>
-
-    <!-- Unlock finger settings screen, Toast shown the TSM library is not available. -->
-    <string name="lockfinger_tsm_library_not_available_toast">TSM Library failed to load... cannot proceed!</string>
-
-    <!-- Unlock finger settings screen, Toast shown when the user canneled the enrollment. -->
-    <string name="lockfinger_enrollment_canceled_toast">Enrollment Canceled.</string>
-
-    <!-- Unlock finger settings screen, Toast shown when the enrollment runs timeout. -->
-    <string name="lockfinger_enrollment_timeout_toast">Enrollment Timed Out.</string>
-
-    <!-- Unlock finger settings screen, Toast shown an unknow error happened. -->
-    <string name="lockfinger_enrollment_unknown_error_toast">Unknown error.\nFailure to connect is likely.</string>
-
-    <!-- Unlock finger settings screen, Toast shown other errors returned by the enrollment. -->
-    <string name="lockfinger_enrollment_failure_default_toast">Enroll Not Successful. failure = %d.</string>
-
-    <!-- Unlock finger settings screen, Toast shown when the database has been full. -->
-    <string name="lockfinger_enrollment_database_full">Enroll Not Successful. Database is full.</string>
-
-    <!-- Unlock finger settings screen, change unlock finger screen instruction on top of screen after UI timeout -->
-    <string name="lockfinger_dbadmin_failure_default_toast">Database Administration operation failure: %d.</string>
-
-    <!-- Unlock finger settings screen, change unlock finger screen instruction on top of screen after UI timeout -->
-    <string name="lockfinger_ui_timeout_header">UI timeout!</string>
-
-    <!-- Unlock finger settings screen, change unlock finger screen instruction on top of screen after too many bad swipes -->
-    <string name="lockfinger_too_many_bad_swipes_header">Too many bad swipes!</string>
-
-    <!-- Unlock finger settings screen, change unlock finger screen countdown hint on bottom of screen when the screen is locked out -->
-    <string name="lockfinger_lockout_countdown_footer">Try again in %d seconds.</string>
-
-    <string name="increasing_ring_title">Increasing ring volume</string>
-    <!-- Sound settings screen, the caption of the checkbox for making incoming calls increas in volume -->
-    <string name="checkbox_increasing_ring">Enable volume increase</string>
-    <!-- Sound settings screen, the title of the volume bar to adjust the minimum increasing ring volume -->
-    <string name="increasing_ring_min_volume_title">Ringing start volume</string>
-    <string name="increasing_ring_volume_notice">Notice:\nAs the start volume is set higher than the ringer volume, the ring tone will be played using the ringer volume.</string>
-    <string name="increasing_ring_interval_title">Increase interval</string>
-    <string name="increasing_ring_interval_eachring">On each ring</string>
-    <string name="increasing_ring_interval_half_second">0.5 seconds</string>
-    <string name="increasing_ring_interval_1second">1 second</string>
-    <string name="increasing_ring_interval_2seconds">2 seconds</string>
-    <string name="increasing_ring_interval_3seconds">3 seconds</string>
-    <string name="increasing_ring_interval_5seconds">5 seconds</string>
-    <string name="increasing_ring_interval_10seconds">10 seconds</string>
 </resources>
