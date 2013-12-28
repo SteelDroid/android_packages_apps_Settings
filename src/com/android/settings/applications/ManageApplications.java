@@ -63,12 +63,12 @@ import java.util.Comparator;
 final class CanBeOnSdCardChecker {
     final IPackageManager mPm;
     int mInstallLocation;
-    
+
     CanBeOnSdCardChecker() {
         mPm = IPackageManager.Stub.asInterface(
                 ServiceManager.getService("package"));
     }
-    
+
     void init() {
         try {
             mInstallLocation = mPm.getInstallLocation();
@@ -77,7 +77,7 @@ final class CanBeOnSdCardChecker {
             return;
         }
     }
-    
+
     boolean check(ApplicationInfo info) {
         boolean canBe = false;
         if ((info.flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) != 0) {
@@ -113,10 +113,10 @@ public class ManageApplications extends TabActivity implements
         TabHost.TabContentFactory, TabHost.OnTabChangeListener {
     static final String TAG = "ManageApplications";
     static final boolean DEBUG = false;
-    
+
     // attributes used as keys when passing values to InstalledAppDetails activity
     public static final String APP_CHG = "chg";
-    
+
     // constant value that can be used to check return code from sub activity.
     private static final int INSTALLED_APP_DETAILS = 1;
 
@@ -136,19 +136,19 @@ public class ManageApplications extends TabActivity implements
     private int mSortOrder = SORT_ORDER_ALPHA;
     // Filter value
     private int mFilterApps = FILTER_APPS_THIRD_PARTY;
-    
+
     private ApplicationsState mApplicationsState;
     private ApplicationsAdapter mApplicationsAdapter;
-    
+
     // Size resource used for packages whose size computation failed for some reason
     private CharSequence mInvalidSizeStr;
     private CharSequence mComputingSizeStr;
-    
+
     // layout inflater object used to inflate views
     private LayoutInflater mInflater;
-    
+
     private String mCurrentPkgName;
-    
+
     private View mLoadingContainer;
 
     private View mListContainer;
@@ -157,7 +157,7 @@ public class ManageApplications extends TabActivity implements
     private ListView mListView;
     // Custom view used to display running processes
     private RunningProcessesView mRunningProcessesView;
-    
+
     LinearColorBar mColorBar;
     TextView mStorageChartLabel;
     TextView mUsedStorageText;
@@ -170,7 +170,7 @@ public class ManageApplications extends TabActivity implements
     private boolean mResumedRunning;
     private boolean mActivityResumed;
     private Object mNonConfigInstance;
-    
+
     private StatFs mDataFileStats;
     private StatFs mSDCardFileStats;
     private boolean mLastShowedInternalStorage = true;
@@ -190,7 +190,7 @@ public class ManageApplications extends TabActivity implements
         TextView appSize;
         TextView disabled;
         CheckBox checkBox;
-        
+
         void updateSizeText(ManageApplications ma) {
             if (DEBUG) Log.i(TAG, "updateSizeText of " + entry.label + " " + entry
                     + ": " + entry.sizeStr);
@@ -201,7 +201,7 @@ public class ManageApplications extends TabActivity implements
             }
         }
     }
-    
+
     /*
      * Custom adapter implementation for the ListView
      * This adapter maintains a map for each displayed application and its properties
@@ -274,7 +274,7 @@ public class ManageApplications extends TabActivity implements
             mLastSortMode = sort;
             rebuild(true);
         }
-        
+
         public void rebuild(boolean eraseold) {
             if (DEBUG) Log.i(TAG, "Rebuilding app list...");
             ApplicationsState.AppFilter filterObj;
@@ -404,15 +404,15 @@ public class ManageApplications extends TabActivity implements
                 rebuild(false);
             }
         }
-        
+
         public int getCount() {
             return mEntries != null ? mEntries.size() : 0;
         }
-        
+
         public Object getItem(int position) {
             return mEntries.get(position);
         }
-        
+
         public ApplicationsState.AppEntry getAppEntry(int position) {
             return mEntries.get(position);
         }
@@ -420,7 +420,7 @@ public class ManageApplications extends TabActivity implements
         public long getItemId(int position) {
             return mEntries.get(position).id;
         }
-        
+
         public View getView(int position, View convertView, ViewGroup parent) {
             // A ViewHolder keeps references to children views to avoid unnecessary calls
             // to findViewById() on each row.
@@ -490,13 +490,13 @@ public class ManageApplications extends TabActivity implements
             mActive.remove(view);
         }
     }
-    
+
     static final String TAB_DOWNLOADED = "Downloaded";
     static final String TAB_RUNNING = "Running";
     static final String TAB_ALL = "All";
     static final String TAB_SDCARD = "OnSdCard";
     private View mRootView;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -518,16 +518,16 @@ public class ManageApplications extends TabActivity implements
             // Select the all-apps tab, with the default sorting
             defaultTabTag = TAB_ALL;
         }
-        
+
         if (savedInstanceState != null) {
             mSortOrder = savedInstanceState.getInt("sortOrder", mSortOrder);
             mFilterApps = savedInstanceState.getInt("filterApps", mFilterApps);
             String tmp = savedInstanceState.getString("defaultTabTag");
             if (tmp != null) defaultTabTag = tmp;
         }
-        
+
         mNonConfigInstance = getLastNonConfigurationInstance();
-        
+
         mDataFileStats = new StatFs("/data");
         mSDCardFileStats = new StatFs(Environment.getExternalStorageDirectory().toString());
 
@@ -582,7 +582,7 @@ public class ManageApplications extends TabActivity implements
         tabHost.setCurrentTabByTag(defaultTabTag);
         tabHost.setOnTabChangedListener(this);
     }
-    
+
     @Override
     public void onStart() {
         super.onStart();
@@ -607,7 +607,7 @@ public class ManageApplications extends TabActivity implements
     public Object onRetainNonConfigurationInstance() {
         return mRunningProcessesView.doRetainNonConfigurationInstance();
     }
-    
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -626,7 +626,7 @@ public class ManageApplications extends TabActivity implements
             mApplicationsState.requestSize(mCurrentPkgName);
         }
     }
-    
+
     // utility method used to start sub activity
     private void startApplicationDetailsActivity() {
         // Create intent to start new activity
@@ -635,7 +635,7 @@ public class ManageApplications extends TabActivity implements
         // start new activity to display extended information
         startActivityForResult(intent, INSTALLED_APP_DETAILS);
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, SORT_ORDER_ALPHA, 1, R.string.sort_order_alpha)
@@ -646,7 +646,7 @@ public class ManageApplications extends TabActivity implements
         menu.add(0, SHOW_BACKGROUND_PROCESSES, 3, R.string.show_background_processes);
         return true;
     }
-    
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         /*
@@ -683,7 +683,7 @@ public class ManageApplications extends TabActivity implements
         }
         return true;
     }
-    
+
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_SEARCH && event.isTracking()) {
@@ -702,7 +702,7 @@ public class ManageApplications extends TabActivity implements
         mCurrentPkgName = entry.info.packageName;
         startApplicationDetailsActivity();
     }
-    
+
     // Finish the activity if the user presses the back button to cancel the activity
     public void onCancel(DialogInterface dialog) {
         finish();
@@ -858,7 +858,7 @@ public class ManageApplications extends TabActivity implements
             // Invalid option. Do nothing
             return;
         }
-        
+
         mFilterApps = newOption;
         selectView(VIEW_LIST);
         updateStorageUsage();

@@ -63,4 +63,3 @@ public class ChooseLockPatternTutorial extends Activity implements View.OnClickL
         }
     }
 }
-

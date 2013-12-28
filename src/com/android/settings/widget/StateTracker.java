@@ -1,4 +1,3 @@
-
 package com.android.settings.widget;
 
 import android.content.Context;

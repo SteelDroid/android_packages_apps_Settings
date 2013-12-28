@@ -72,7 +72,7 @@ public class ApplicationsState {
         long codeSize;
         long dataSize;
     }
-    
+
     public static class AppEntry extends SizeInfo {
         final File apkFile;
         final long id;
@@ -80,7 +80,7 @@ public class ApplicationsState {
         long size;
 
         boolean mounted;
-        
+
         String getNormalizedLabel() {
             if (normalizedLabel != null) {
                 return normalizedLabel;
@@ -106,7 +106,7 @@ public class ApplicationsState {
             this.sizeStale = true;
             ensureLabel(context);
         }
-        
+
         void ensureLabel(Context context) {
             if (this.label == null || !this.mounted) {
                 if (!this.apkFile.exists()) {
@@ -119,7 +119,7 @@ public class ApplicationsState {
                 }
             }
         }
-        
+
         boolean ensureIconLocked(Context context, PackageManager pm) {
             if (this.icon == null) {
                 if (this.apkFile.exists()) {
@@ -164,7 +164,7 @@ public class ApplicationsState {
     public static final AppFilter THIRD_PARTY_FILTER = new AppFilter() {
         public void init() {
         }
-        
+
         @Override
         public boolean filterApp(ApplicationInfo info) {
             if ((info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
@@ -179,11 +179,11 @@ public class ApplicationsState {
     public static final AppFilter ON_SD_CARD_FILTER = new AppFilter() {
         final CanBeOnSdCardChecker mCanBeOnSdCardChecker
                 = new CanBeOnSdCardChecker();
-        
+
         public void init() {
             mCanBeOnSdCardChecker.init();
         }
-        
+
         @Override
         public boolean filterApp(ApplicationInfo info) {
             return mCanBeOnSdCardChecker.check(info);
@@ -337,7 +337,7 @@ public class ApplicationsState {
                 Process.THREAD_PRIORITY_BACKGROUND);
         mThread.start();
         mBackgroundHandler = new BackgroundHandler(mThread.getLooper());
-        
+
         /**
          * This is a trick to prevent the foreground thread from being delayed.
          * The problem is that Dalvik monitors are initially spin locks, to keep
@@ -454,7 +454,7 @@ public class ApplicationsState {
         if (filter != null) {
             filter.init();
         }
-        
+
         List<ApplicationInfo> apps;
         synchronized (mEntriesMap) {
             apps = new ArrayList<ApplicationInfo>(mApplications);
@@ -513,7 +513,7 @@ public class ApplicationsState {
             return entry;
         }
     }
-    
+
     void ensureIcon(AppEntry entry) {
         if (entry.icon != null) {
             return;
@@ -522,7 +522,7 @@ public class ApplicationsState {
             entry.ensureIconLocked(mContext, mPm);
         }
     }
-    
+
     void requestSize(String packageName) {
         if (DEBUG_LOCKING) Log.v(TAG, "requestSize about to acquire lock...");
         synchronized (mEntriesMap) {
@@ -546,7 +546,7 @@ public class ApplicationsState {
         }
         return sum;
     }
-    
+
     int indexOfApplicationInfoLocked(String pkgName) {
         for (int i=mApplications.size()-1; i>=0; i--) {
             if (mApplications.get(i).packageName.equals(pkgName)) {

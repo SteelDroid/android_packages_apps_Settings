@@ -43,7 +43,6 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-
 /**
  * Show the current status details of Wifi related fields
  */
@@ -65,7 +64,6 @@ public class WifiStatusTest extends Activity {
     private TextView mLinkSpeed;
     private TextView mScanList;
 
-
     private TextView mPingIpAddr;
     private TextView mPingHostname;
     private TextView mHttpClientTest;
@@ -75,10 +73,8 @@ public class WifiStatusTest extends Activity {
     private String mPingHostnameResult;
     private String mHttpClientTestResult;
 
-
     private WifiManager mWifiManager;
     private IntentFilter mWifiStateFilter;
-
 
     //============================
     // Activity lifecycle
@@ -144,7 +140,6 @@ public class WifiStatusTest extends Activity {
         mNetworkId = (TextView) findViewById(R.id.networkid);
         mLinkSpeed = (TextView) findViewById(R.id.link_speed);
         mScanList = (TextView) findViewById(R.id.scan_list);
-
 
         mPingIpAddr = (TextView) findViewById(R.id.pingIpAddr);
         mPingHostname = (TextView) findViewById(R.id.pingHostname);

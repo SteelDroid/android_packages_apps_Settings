@@ -477,7 +477,6 @@ public class RadioInfo extends Activity {
             mLocation.setText("unknown");
         }
 
-
     }
 
     private final void updateNeighboringCids(ArrayList<NeighboringCellInfo> cids) {
@@ -506,7 +505,6 @@ public class RadioInfo extends Activity {
     updateCallRedirect() {
         mCfi.setText(String.valueOf(mCfiValue));
     }
-
 
     private final void
     updateServiceState() {
@@ -600,7 +598,6 @@ public class RadioInfo extends Activity {
         s = phone.getDeviceId();
         if (s == null) s = r.getString(R.string.radioInfo_unknown);
         mDeviceId.setText(s);
-
 
         s = phone.getLine1Number();
         if (s == null) s = r.getString(R.string.radioInfo_unknown);
@@ -802,7 +799,6 @@ public class RadioInfo extends Activity {
             }
             sb.append("\n===================");
         }
-
 
         disconnects.setText(sb.toString());
     }

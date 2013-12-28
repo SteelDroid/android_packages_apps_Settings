@@ -50,7 +50,7 @@ public class UserDictionarySettings extends ListActivity {
     private static final String[] QUERY_PROJECTION = {
         UserDictionary.Words._ID, UserDictionary.Words.WORD
     };
-    
+
     // Either the locale is empty (means the word is applicable to all locales)
     // or the word equals our current locale
     private static final String QUERY_SELECTION = UserDictionary.Words.LOCALE + "=? OR "
@@ -59,41 +59,41 @@ public class UserDictionarySettings extends ListActivity {
     private static final String DELETE_SELECTION = UserDictionary.Words.WORD + "=?";
 
     private static final String EXTRA_WORD = "word";
-    
+
     private static final int CONTEXT_MENU_EDIT = Menu.FIRST;
     private static final int CONTEXT_MENU_DELETE = Menu.FIRST + 1;
-    
+
     private static final int OPTIONS_MENU_ADD = Menu.FIRST;
 
     private static final int DIALOG_ADD_OR_EDIT = 0;
-    
+
     /** The word being edited in the dialog (null means the user is adding a word). */
     private String mDialogEditingWord;
-    
+
     private Cursor mCursor;
-    
+
     private boolean mAddedWordAlready;
     private boolean mAutoReturn;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.list_content_with_empty_view);
-        
+
         mCursor = createCursor();
         setListAdapter(createAdapter());
-        
+
         TextView emptyView = (TextView) findViewById(R.id.empty);
         emptyView.setText(R.string.user_dict_settings_empty_text);
-        
+
         ListView listView = getListView();
         listView.setFastScrollEnabled(true);
         listView.setEmptyView(emptyView);
 
         registerForContextMenu(listView);
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -106,6 +106,7 @@ public class UserDictionarySettings extends ListActivity {
             }
         }
     }
+
     @Override
     protected void onRestoreInstanceState(Bundle state) {
         super.onRestoreInstanceState(state);
@@ -134,7 +135,7 @@ public class UserDictionarySettings extends ListActivity {
                 new String[] { UserDictionary.Words.WORD },
                 new int[] { android.R.id.text1 });
     }
-    
+
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         openContextMenu(v);
@@ -143,7 +144,7 @@ public class UserDictionarySettings extends ListActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         if (!(menuInfo instanceof AdapterContextMenuInfo)) return;
-        
+
         AdapterContextMenuInfo adapterMenuInfo = (AdapterContextMenuInfo) menuInfo;
         menu.setHeaderTitle(getWord(adapterMenuInfo.position));
         menu.add(0, CONTEXT_MENU_EDIT, 0, 
@@ -151,7 +152,7 @@ public class UserDictionarySettings extends ListActivity {
         menu.add(0, CONTEXT_MENU_DELETE, 0, 
                 R.string.user_dict_settings_context_menu_delete_title);
     }
-    
+
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         ContextMenuInfo menuInfo = item.getMenuInfo();
@@ -170,7 +171,7 @@ public class UserDictionarySettings extends ListActivity {
                 showAddOrEditDialog(word);
                 return true;
         }
-        
+
         return false;
     }
 
@@ -191,7 +192,7 @@ public class UserDictionarySettings extends ListActivity {
         mDialogEditingWord = editingWord;
         showDialog(DIALOG_ADD_OR_EDIT);
     }
-    
+
     private String getWord(int position) {
         mCursor.moveToPosition(position);
         // Handle a possible race-condition
@@ -208,10 +209,10 @@ public class UserDictionarySettings extends ListActivity {
         // No prediction in soft keyboard mode. TODO: Create a better way to disable prediction
         editText.setInputType(InputType.TYPE_CLASS_TEXT 
                 | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE);
-        
-        AlertDialog dialog =  new AlertDialog.Builder(this)
-                .setTitle(mDialogEditingWord != null 
-                        ? R.string.user_dict_settings_edit_dialog_title 
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle(mDialogEditingWord != null
+                        ? R.string.user_dict_settings_edit_dialog_title
                         : R.string.user_dict_settings_add_dialog_title)
                 .setView(content)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -221,7 +222,7 @@ public class UserDictionarySettings extends ListActivity {
                     }})
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        if (mAutoReturn) finish();                        
+                        if (mAutoReturn) finish();
                     }})
                 .create();
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE |
@@ -232,8 +233,8 @@ public class UserDictionarySettings extends ListActivity {
     @Override
     protected void onPrepareDialog(int id, Dialog d) {
         AlertDialog dialog = (AlertDialog) d;
-        d.setTitle(mDialogEditingWord != null 
-                        ? R.string.user_dict_settings_edit_dialog_title 
+        d.setTitle(mDialogEditingWord != null
+                        ? R.string.user_dict_settings_edit_dialog_title
                         : R.string.user_dict_settings_add_dialog_title);
         EditText editText = (EditText) dialog.findViewById(R.id.edittext);
         editText.setText(mDialogEditingWord);
@@ -244,10 +245,10 @@ public class UserDictionarySettings extends ListActivity {
             // The user was editing a word, so do a delete/add
             deleteWord(mDialogEditingWord);
         }
-        
+
         // Disallow duplicates
         deleteWord(word);
-        
+
         // TODO: present UI for picking whether to add word to all locales, or current.
         UserDictionary.Words.addWord(this, word.toString(),
                 250, UserDictionary.Words.LOCALE_TYPE_ALL);
@@ -259,16 +260,16 @@ public class UserDictionarySettings extends ListActivity {
         getContentResolver().delete(UserDictionary.Words.CONTENT_URI, DELETE_SELECTION,
                 new String[] { word });
     }
-    
+
     private static class MyAdapter extends SimpleCursorAdapter implements SectionIndexer {
-        private AlphabetIndexer mIndexer;        
-        
+        private AlphabetIndexer mIndexer;
+
         public MyAdapter(Context context, int layout, Cursor c, String[] from, int[] to) {
             super(context, layout, c, from, to);
 
             int wordColIndex = c.getColumnIndexOrThrow(UserDictionary.Words.WORD);
             String alphabet = context.getString(com.android.internal.R.string.fast_scroll_alphabet);
-            mIndexer = new AlphabetIndexer(c, wordColIndex, alphabet); 
+            mIndexer = new AlphabetIndexer(c, wordColIndex, alphabet);
         }
 
         public int getPositionForSection(int section) {

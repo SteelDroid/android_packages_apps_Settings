@@ -69,7 +69,6 @@ public class ConfirmLockPattern extends Activity {
     private CharSequence mHeaderWrongText;
     private CharSequence mFooterWrongText;
 
-
     private enum Stage {
         NeedToUnlock,
         NeedToUnlockWrong,
@@ -207,7 +206,7 @@ public class ConfirmLockPattern extends Activity {
      * The pattern listener that responds according to a user confirming
      * an existing lock pattern.
      */
-    private LockPatternView.OnPatternListener mConfirmExistingLockPatternListener = new LockPatternView.OnPatternListener()  {
+    private LockPatternView.OnPatternListener mConfirmExistingLockPatternListener = new LockPatternView.OnPatternListener() {
 
         public void onPatternStart() {
             mLockPatternView.removeCallbacks(mClearPatternRunnable);
@@ -237,7 +236,6 @@ public class ConfirmLockPattern extends Activity {
             }
         }
     };
-
 
     private void handleAttemptLockout(long elapsedRealtimeDeadline) {
         updateStage(Stage.LockedOut);

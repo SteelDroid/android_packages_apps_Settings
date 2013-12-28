@@ -232,5 +232,4 @@ public class BluetoothDiscoverableEnabler implements Preference.OnPreferenceChan
         }
     }
 
-
 }

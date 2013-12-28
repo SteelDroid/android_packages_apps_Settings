@@ -67,7 +67,7 @@ public class LocalePicker extends ListActivity {
     int getContentView() {
         return R.layout.locale_picker;
     }
-    
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);

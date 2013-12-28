@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.android.settings.applications;
 
 import android.content.Context;
@@ -162,7 +159,6 @@ public class LinearColorBar extends LinearLayout {
             width -= (right-left);
             left = right;
         }
-
 
         right = left + width;
         if (left < right) {

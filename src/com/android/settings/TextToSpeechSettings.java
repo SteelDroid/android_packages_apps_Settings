@@ -131,7 +131,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
         mTts = new TextToSpeech(this, this);
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -144,7 +143,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
             checkVoiceData();
         }
     }
-
 
     @Override
     protected void onDestroy() {
@@ -167,8 +165,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
             mDefaultSynthPref.getDialog().dismiss();
         }
     }
-
-
 
     private void addEngineSpecificSettings() {
         PreferenceGroup enginesCategory = (PreferenceGroup) findPreference("tts_engines_section");
@@ -218,7 +214,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
         return false;
     }
 
-
     private void initClickers() {
         mPlayExample = findPreference(KEY_TTS_PLAY_EXAMPLE);
         mPlayExample.setOnPreferenceClickListener(this);
@@ -226,7 +221,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
         mInstallData = findPreference(KEY_TTS_INSTALL_DATA);
         mInstallData.setOnPreferenceClickListener(this);
     }
-
 
     private void initDefaultSettings() {
         ContentResolver resolver = getContentResolver();
@@ -278,7 +272,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
         mDefaultLocPref.setOnPreferenceChangeListener(this);
     }
 
-
     /**
      * Ask the current default engine to launch the matching CHECK_TTS_DATA activity
      * to check the required TTS files are properly installed.
@@ -297,7 +290,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
             }
         }
     }
-
 
     /**
      * Ask the current default engine to launch the matching INSTALL_TTS_DATA activity
@@ -343,7 +335,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
         }
     }
 
-
     /**
      * Called when the TTS engine is initialized.
      */
@@ -373,7 +364,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
         }
         updateWidgetState();
     }
-
 
     /**
      * Called when voice data integrity check returns
@@ -492,7 +482,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
         }
     }
 
-
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (KEY_TTS_USE_DEFAULT.equals(preference.getKey())) {
             // "Use Defaults"
@@ -543,7 +532,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
 
         return true;
     }
-
 
     /**
      * Called when mPlayExample or mInstallData is clicked
@@ -604,7 +592,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
         return false;
     }
 
-
     private void updateWidgetState() {
         mPlayExample.setEnabled(mEnableDemo);
         mUseDefaultPref.setEnabled(mEnableDemo);
@@ -613,7 +600,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
 
         mInstallData.setEnabled(mVoicesMissing);
     }
-
 
     private void parseLocaleInfo(String locale) {
         StringTokenizer tokenizer = new StringTokenizer(locale, LOCALE_DELIMITER);
@@ -630,7 +616,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
             mDefaultLocVariant = tokenizer.nextToken().trim();
         }
     }
-
 
     /**
      *  Initialize the default language in the UI and in the preferences.
@@ -718,7 +703,6 @@ public class TextToSpeechSettings extends PreferenceActivity implements
         Settings.Secure.putString(resolver, TTS_DEFAULT_COUNTRY, DEFAULT_COUNTRY_VAL);
         Settings.Secure.putString(resolver, TTS_DEFAULT_VARIANT, DEFAULT_VARIANT_VAL);
     }
-
 
     private void loadEngines() {
         mDefaultSynthPref = (ListPreference) findPreference(KEY_TTS_DEFAULT_SYNTH);

@@ -44,30 +44,30 @@ public class AdvancedSettings extends PreferenceActivity
     private static final String KEY_USE_STATIC_IP = "use_static_ip";
     private static final String KEY_NUM_CHANNELS = "num_channels";
     private static final String KEY_SLEEP_POLICY = "sleep_policy";
-    
+
     private String[] mSettingNames = {
             System.WIFI_STATIC_IP, System.WIFI_STATIC_GATEWAY, System.WIFI_STATIC_NETMASK,
             System.WIFI_STATIC_DNS1, System.WIFI_STATIC_DNS2
     };
-    
+
     private String[] mPreferenceKeys = {
             "ip_address", "gateway", "netmask", "dns1", "dns2"
     };
-    
+
     private CheckBoxPreference mUseStaticIpCheckBox;
-    
+
     private static final int MENU_ITEM_SAVE = Menu.FIRST;
     private static final int MENU_ITEM_CANCEL = Menu.FIRST + 1;
-    
+
     //Tracks ro.debuggable (1 on userdebug builds)
     private static int DEBUGGABLE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         addPreferencesFromResource(R.xml.wifi_advanced_settings);
-        
+
         mUseStaticIpCheckBox = (CheckBoxPreference) findPreference(KEY_USE_STATIC_IP);
         mUseStaticIpCheckBox.setOnPreferenceChangeListener(this);
 
@@ -96,11 +96,11 @@ public class AdvancedSettings extends PreferenceActivity
             }
         }
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
-        
+
         updateUi();
         /**
          * Remove user control of regulatory domain
@@ -146,7 +146,7 @@ public class AdvancedSettings extends PreferenceActivity
             pref.setValue(String.valueOf(numChannels));
         }
     }
-    
+
     private void initSleepPolicyPreference() {
         ListPreference pref = (ListPreference) findPreference(KEY_SLEEP_POLICY);
         pref.setOnPreferenceChangeListener(this);
@@ -157,11 +157,11 @@ public class AdvancedSettings extends PreferenceActivity
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-    
+
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             updateSettingsProvider();
         }
-    
+
         return super.onKeyDown(keyCode, event);
     }
 
@@ -182,7 +182,7 @@ public class AdvancedSettings extends PreferenceActivity
                         Toast.LENGTH_SHORT).show();
                 return false;
             }
-            
+
         } else if (key.equals(KEY_SLEEP_POLICY)) {
             try {
                 Settings.System.putInt(getContentResolver(),
@@ -204,12 +204,12 @@ public class AdvancedSettings extends PreferenceActivity
             }
         } else {
             String value = (String) newValue;
-            
+
             if (!isIpAddress(value)) {
                 Toast.makeText(this, R.string.wifi_ip_settings_invalid_ip, Toast.LENGTH_LONG).show();
                 return false;
             }
-            
+
             preference.setSummary(value);
             for (int i = 0; i < mSettingNames.length; i++) {
                 if (key.equals(mPreferenceKeys[i])) {
@@ -218,16 +218,16 @@ public class AdvancedSettings extends PreferenceActivity
                 }
             }
         }
-        
+
         return true;
     }
 
     private boolean isIpAddress(String value) {
-        
+
         int start = 0;
         int end = value.indexOf('.');
         int numBlocks = 0;
-        
+
         while (start < value.length()) {
             
             if (end == -1) {
@@ -242,19 +242,19 @@ public class AdvancedSettings extends PreferenceActivity
             } catch (NumberFormatException e) {
                 return false;
             }
-            
+
             numBlocks++;
-            
+
             start = end + 1;
             end = value.indexOf('.', start);
         }
-        
+
         return numBlocks == 4;
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         menu.add(0, MENU_ITEM_SAVE, 0, R.string.wifi_ip_settings_menu_save)
                 .setIcon(android.R.drawable.ic_menu_save);
 
@@ -268,26 +268,26 @@ public class AdvancedSettings extends PreferenceActivity
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-        
+
             case MENU_ITEM_SAVE:
                 updateSettingsProvider();
                 finish();
                 return true;
-                
+
             case MENU_ITEM_CANCEL:
                 finish();
                 return true;
         }
-        
+
         return super.onOptionsItemSelected(item);
     }
 
     private void updateUi() {
         ContentResolver contentResolver = getContentResolver();
-        
+
         mUseStaticIpCheckBox.setChecked(System.getInt(contentResolver,
                 System.WIFI_USE_STATIC_IP, 0) != 0);
-        
+
         for (int i = 0; i < mSettingNames.length; i++) {
             EditTextPreference preference = (EditTextPreference) findPreference(mPreferenceKeys[i]);
             String settingValue = System.getString(contentResolver, mSettingNames[i]);
@@ -295,26 +295,26 @@ public class AdvancedSettings extends PreferenceActivity
             preference.setSummary(settingValue);
         }
     }
-    
+
     private void updateSettingsProvider() {
         ContentResolver contentResolver = getContentResolver();
 
         System.putInt(contentResolver, System.WIFI_USE_STATIC_IP,
                 mUseStaticIpCheckBox.isChecked() ? 1 : 0);
-        
+
         for (int i = 0; i < mSettingNames.length; i++) {
             EditTextPreference preference = (EditTextPreference) findPreference(mPreferenceKeys[i]);
             System.putString(contentResolver, mSettingNames[i], preference.getText());
         }
     }
-    
+
     private void refreshWifiInfo() {
         WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 
         Preference wifiMacAddressPref = findPreference(KEY_MAC_ADDRESS);
         String macAddress = wifiInfo == null ? null : wifiInfo.getMacAddress();
-        wifiMacAddressPref.setSummary(!TextUtils.isEmpty(macAddress) ? macAddress 
+        wifiMacAddressPref.setSummary(!TextUtils.isEmpty(macAddress) ? macAddress
                 : getString(R.string.status_unavailable));
 
         Preference wifiIpAddressPref = findPreference(KEY_CURRENT_IP_ADDRESS);

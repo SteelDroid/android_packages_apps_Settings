@@ -90,7 +90,7 @@ public class GfxEngineRelayService extends Service {
         /* remote clients call receiveEvent() to get the next event from the */
         /* UI's event queue -- things like #cancel and #timeout              */
         public String receiveEvent() throws RemoteException {
-            /* block until there's something in the event queue   */
+            /* block until there's something in the event queue */
             try {
                 // mEventBufferSemaphore.acquire();
 

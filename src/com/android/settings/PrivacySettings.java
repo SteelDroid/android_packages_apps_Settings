@@ -51,7 +51,7 @@ public class PrivacySettings extends PreferenceActivity implements
     private Dialog mConfirmDialog;
 
     private static final int DIALOG_ERASE_BACKUP = 2;
-    private int     mDialogType;
+    private int mDialogType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

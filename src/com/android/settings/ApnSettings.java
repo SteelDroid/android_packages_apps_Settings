@@ -140,7 +140,7 @@ public class ApnSettings extends PreferenceActivity implements
     @Override
     protected void onPause() {
         super.onPause();
-        
+
         unregisterReceiver(mMobileStateReceiver);
     }
 
@@ -317,7 +317,7 @@ public class ApnSettings extends PreferenceActivity implements
             switch (msg.what) {
                 case EVENT_RESTORE_DEFAULTAPN_START:
                     ContentResolver resolver = getContentResolver();
-                    resolver.delete(DEFAULTAPN_URI, null, null);                    
+                    resolver.delete(DEFAULTAPN_URI, null, null);
                     mRestoreApnUiHandler
                         .sendEmptyMessage(EVENT_RESTORE_DEFAULTAPN_COMPLETE);
                     break;

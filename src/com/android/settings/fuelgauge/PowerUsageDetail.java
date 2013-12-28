@@ -119,7 +119,7 @@ public class PowerUsageDetail extends Activity implements Button.OnClickListener
 
     ApplicationInfo mApp;
     ComponentName mInstaller;
-    
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -170,7 +170,7 @@ public class PowerUsageDetail extends Activity implements Button.OnClickListener
         // Set the description
         String summary = getDescriptionForDrainType();
         ((TextView)findViewById(R.id.summary)).setText(summary);
-        
+
         mTypes = intent.getIntArrayExtra(EXTRA_DETAIL_TYPES);
         mValues = intent.getDoubleArrayExtra(EXTRA_DETAIL_VALUES);
 
@@ -183,7 +183,7 @@ public class PowerUsageDetail extends Activity implements Button.OnClickListener
         mForceStopButton = (Button) findViewById(R.id.left_button);
         mReportButton = (Button) findViewById(R.id.right_button);
         mForceStopButton.setEnabled(false);
-        
+
         ImageView gaugeImage = (ImageView) findViewById(R.id.gauge);
         mGauge = new PercentageBar();
         mGauge.percent = gaugeValue;
@@ -199,7 +199,7 @@ public class PowerUsageDetail extends Activity implements Button.OnClickListener
         fillDetailsSection();
         fillPackagesSection(mUid);
         fillControlsSection(mUid);
-        
+
         if (mUid >= Process.FIRST_APPLICATION_UID) {
             mForceStopButton.setText(R.string.force_stop);
             mForceStopButton.setTag(ACTION_FORCE_STOP);
@@ -207,7 +207,7 @@ public class PowerUsageDetail extends Activity implements Button.OnClickListener
             mReportButton.setText(com.android.internal.R.string.report);
             mReportButton.setTag(ACTION_REPORT);
             mReportButton.setOnClickListener(this);
-            
+
             // check if error reporting is enabled in secure settings
             int enabled = Settings.Secure.getInt(getContentResolver(),
                     Settings.Secure.SEND_ACTION_APP_ERROR, 0);
@@ -396,7 +396,7 @@ public class PowerUsageDetail extends Activity implements Button.OnClickListener
             mForceStopButton.setEnabled(getResultCode() != RESULT_CANCELED);
         }
     };
-    
+
     private void checkForceStop() {
         if (mPackages == null || mUid < Process.FIRST_APPLICATION_UID) {
             mForceStopButton.setEnabled(false);
@@ -409,7 +409,7 @@ public class PowerUsageDetail extends Activity implements Button.OnClickListener
         sendOrderedBroadcast(intent, null, mCheckKillProcessesReceiver, null,
                 Activity.RESULT_CANCELED, null, null);
     }
-    
+
     private void reportBatteryUse() {
         if (mPackages == null) return;
         
@@ -435,7 +435,7 @@ public class PowerUsageDetail extends Activity implements Button.OnClickListener
         result.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(result);
     }
-    
+
     private void fillPackagesSection(int uid) {
         if (uid < 1) {
             removePackagesSection();
@@ -444,7 +444,7 @@ public class PowerUsageDetail extends Activity implements Button.OnClickListener
         ViewGroup packagesParent = (ViewGroup) findViewById(R.id.packages_section);
         if (packagesParent == null) return;
         LayoutInflater inflater = getLayoutInflater();
-        
+
         PackageManager pm = getPackageManager();
         //final Drawable defaultActivityIcon = pm.getDefaultActivityIcon();
         mPackages = pm.getPackagesForUid(uid);
@@ -474,7 +474,7 @@ public class PowerUsageDetail extends Activity implements Button.OnClickListener
             }
         }
     }
-    
+
     private String getDescriptionForDrainType() {
         return getResources().getString(sDrainTypeDesciptions[mDrainType.ordinal()]);
     }

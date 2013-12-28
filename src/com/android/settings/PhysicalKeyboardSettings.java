@@ -25,13 +25,13 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings.System;
 
 public class PhysicalKeyboardSettings extends PreferenceActivity {
-    
+
     private final String[] mSettingsUiKey = {
             "auto_caps",
             "auto_replace",
             "auto_punctuate",
     };
-    
+
     // Note: Order of this array should correspond to the order of the above array
     private final String[] mSettingsSystemId = {
             System.TEXT_AUTO_CAPS,
@@ -52,7 +52,7 @@ public class PhysicalKeyboardSettings extends PreferenceActivity {
 
         addPreferencesFromResource(R.xml.keyboard_settings);
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -63,7 +63,6 @@ public class PhysicalKeyboardSettings extends PreferenceActivity {
                                           mSettingsDefault[i]) > 0);
         }
     }
-
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {

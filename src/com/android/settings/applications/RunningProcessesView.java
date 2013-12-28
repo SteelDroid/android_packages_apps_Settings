@@ -382,8 +382,6 @@ public class RunningProcessesView extends FrameLayout
         return 0;
     }
 
-
-
     void refreshUi(boolean dataChanged) {
         if (dataChanged) {
             ServiceListAdapter adapter = (ServiceListAdapter)(mListView.getAdapter());

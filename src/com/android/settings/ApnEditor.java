@@ -40,7 +40,6 @@ import android.view.MenuItem;
 import com.android.internal.telephony.TelephonyProperties;
 import com.android.internal.telephony.RILConstants;
 
-
 public class ApnEditor extends PreferenceActivity
         implements SharedPreferences.OnSharedPreferenceChangeListener,
                     Preference.OnPreferenceChangeListener {
@@ -121,7 +120,6 @@ public class ApnEditor extends PreferenceActivity
     private static final int AUTH_TYPE_INDEX = 14;
     private static final int TYPE_INDEX = 15;
     private static final int PROTOCOL_INDEX = 16;
-
 
     @Override
     protected void onCreate(Bundle icicle) {

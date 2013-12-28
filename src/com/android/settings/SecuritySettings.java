@@ -16,7 +16,6 @@
 
 package com.android.settings;
 
-
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -156,7 +155,6 @@ public class SecuritySettings extends PreferenceActivity implements OnPreference
         btpref.setDefaultValue("0");
         btpref.setOnPreferenceChangeListener(this);
 
-        
         // listen for Location Manager settings changes
         Cursor settingsCursor = getContentResolver().query(Settings.Secure.CONTENT_URI, null,
                 "(" + Settings.System.NAME + "=?)",
@@ -195,7 +193,6 @@ public class SecuritySettings extends PreferenceActivity implements OnPreference
         return true;
     }
 
-    
     private PreferenceScreen createPreferenceHierarchy() {
         PreferenceScreen root = this.getPreferenceScreen();
         if (root != null) {
@@ -479,7 +476,6 @@ public class SecuritySettings extends PreferenceActivity implements OnPreference
         private Preference mInstallButton;
         private Preference mPasswordButton;
         private Preference mResetButton;
-
 
         // Encrypted file system controls
         private  CheckBoxPreference mEncryptedFSEnabled;

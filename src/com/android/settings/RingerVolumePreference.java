@@ -101,7 +101,7 @@ public class RingerVolumePreference extends VolumePreference implements
             if (mOrigNotificationsUseRingVolume != checked) {
                 updateNotificationsUseRingVolumeSetting(mOrigNotificationsUseRingVolume);
             }
-        }        
+        }
         cleanup();
     }
 

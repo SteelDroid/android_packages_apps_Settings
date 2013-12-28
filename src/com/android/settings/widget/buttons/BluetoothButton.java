@@ -1,4 +1,3 @@
-
 package com.android.settings.widget.buttons;
 
 import com.android.settings.R;
@@ -32,8 +31,7 @@ public class BluetoothButton extends WidgetButton {
             if (sLocalBluetoothManager == null) {
                 sLocalBluetoothManager = LocalBluetoothManager.getInstance(context);
                 if (sLocalBluetoothManager == null) {
-                    return SettingsAppWidgetProvider.STATE_UNKNOWN; // On
-                                                                    // emulator?
+                    return SettingsAppWidgetProvider.STATE_UNKNOWN; // On emulator?
                 }
             }
             return bluetoothStateToFiveState(sLocalBluetoothManager.getBluetoothState());

@@ -632,7 +632,6 @@ public abstract class LocalBluetoothProfileManager {
             }
        }
 
-
         @Override
         public boolean isPreferred(BluetoothDevice device) {
            return mService.getHidDevicePriority(device) > BluetoothHid.PRIORITY_OFF;
@@ -729,7 +728,6 @@ public abstract class LocalBluetoothProfileManager {
             
         }
 
-
         @Override
         public boolean isProfileReady() {
             return true;
@@ -737,7 +735,7 @@ public abstract class LocalBluetoothProfileManager {
 
         @Override
         public int convertState(int state) {
-            return 0;            
+            return 0;
         }
 
     }

@@ -32,7 +32,7 @@ public class ProgressCategory extends PreferenceCategory {
         super(context, attrs);
         setLayoutResource(R.layout.preference_progress_category);
     }
-    
+
     @Override
     public void onBindView(View view) {
         super.onBindView(view);
@@ -50,14 +50,13 @@ public class ProgressCategory extends PreferenceCategory {
         }
         oldView = view;
     }
-    
+
     /**
      * Turn on/off the progress indicator and text on the right.
-     * @param progressOn whether or not the progress should be displayed 
+     * @param progressOn whether or not the progress should be displayed
      */
     public void setProgress(boolean progressOn) {
         mProgress = progressOn;
         notifyChanged();
     }
 }
-

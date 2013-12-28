@@ -73,7 +73,7 @@ public class Display extends Activity implements View.OnClickListener {
         mDisplayMetrics.widthPixels = metrics.widthPixels;
         mDisplayMetrics.xdpi = metrics.xdpi;
         mDisplayMetrics.ydpi = metrics.ydpi;
-        
+
         styledAttributes.recycle();
     }
 

@@ -49,7 +49,7 @@ import java.util.TimeZone;
  * result in a change in the time zone setting.
  */
 public class ZoneList extends ListActivity {
-    
+
     private static final String TAG = "ZoneList";
     private static final String KEY_ID = "id";
     private static final String KEY_DISPLAYNAME = "name";
@@ -60,18 +60,18 @@ public class ZoneList extends ListActivity {
     private static final int HOURS_1 = 60 * 60000;
     private static final int HOURS_24 = 24 * HOURS_1;
     private static final int HOURS_HALF = HOURS_1 / 2;
-    
+
     private static final int MENU_TIMEZONE = Menu.FIRST+1;
     private static final int MENU_ALPHABETICAL = Menu.FIRST;
 
     // Initial focus position
     private int mDefault;
-    
+
     private boolean mSortedByTimezone;
 
     private SimpleAdapter mTimezoneSortedAdapter;
     private SimpleAdapter mAlphabeticalAdapter;
-    
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -80,7 +80,7 @@ public class ZoneList extends ListActivity {
         int[] to = new int[] {android.R.id.text1, android.R.id.text2};
 
         MyComparator comparator = new MyComparator(KEY_OFFSET);
-        
+
         List<HashMap> timezoneSortedList = getZones();
         Collections.sort(timezoneSortedList, comparator);
         mTimezoneSortedAdapter = new SimpleAdapter(this,
@@ -97,30 +97,30 @@ public class ZoneList extends ListActivity {
                 android.R.layout.simple_list_item_2,
                 from,
                 to);
-        
+
         // Sets the adapter
         setSorting(true);
-        
+
         // If current timezone is in this list, move focus to it
         setSelection(mDefault);
-        
+
         // Assume user may press Back
         setResult(RESULT_CANCELED);
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, MENU_ALPHABETICAL, 0, R.string.zone_list_menu_sort_alphabetically)
             .setIcon(android.R.drawable.ic_menu_sort_alphabetically);
         menu.add(0, MENU_TIMEZONE, 0, R.string.zone_list_menu_sort_by_timezone)
             .setIcon(R.drawable.ic_menu_3d_globe);
-        
+
         return true;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-     
+
         if (mSortedByTimezone) {
             menu.findItem(MENU_TIMEZONE).setVisible(false);
             menu.findItem(MENU_ALPHABETICAL).setVisible(true);
@@ -139,11 +139,9 @@ public class ZoneList extends ListActivity {
             case MENU_TIMEZONE:
                 setSorting(true);
                 return true;
-                
             case MENU_ALPHABETICAL:
                 setSorting(false);
                 return true;
-                
             default:
                 return false;
         }
@@ -153,7 +151,7 @@ public class ZoneList extends ListActivity {
         setListAdapter(timezone ? mTimezoneSortedAdapter : mAlphabeticalAdapter);
         mSortedByTimezone = timezone;
     }
-    
+
     private List<HashMap> getZones() {
         List<HashMap> myData = new ArrayList<HashMap>();
         long date = Calendar.getInstance().getTimeInMillis();
@@ -189,7 +187,7 @@ public class ZoneList extends ListActivity {
         return myData;
     }
 
-    protected void addItem(List<HashMap> myData, String id, String displayName, 
+    protected void addItem(List<HashMap> myData, String id, String displayName,
             long date) {
         HashMap map = new HashMap();
         map.put(KEY_ID, id);
@@ -199,13 +197,13 @@ public class ZoneList extends ListActivity {
         int p = Math.abs(offset);
         StringBuilder name = new StringBuilder();
         name.append("GMT");
-        
+
         if (offset < 0) {
             name.append('-');
         } else {
             name.append('+');
         }
-        
+
         name.append(p / (HOURS_1));
         name.append(':');
 
@@ -216,14 +214,14 @@ public class ZoneList extends ListActivity {
             name.append('0');
         }
         name.append(min);
-        
+
         map.put(KEY_GMT, name.toString());
         map.put(KEY_OFFSET, offset);
-        
+
         if (id.equals(TimeZone.getDefault().getID())) {
             mDefault = myData.size();
         }
-        
+
         myData.add(map);
     }
 
@@ -236,18 +234,18 @@ public class ZoneList extends ListActivity {
         setResult(RESULT_OK);
         finish();
     }
-    
+
     private static class MyComparator implements Comparator<HashMap> {
         private String mSortingKey; 
-        
+
         public MyComparator(String sortingKey) {
             mSortingKey = sortingKey;
         }
-        
+
         public void setSortingKey(String sortingKey) {
             mSortingKey = sortingKey;
         }
-        
+
         public int compare(HashMap map1, HashMap map2) {
             Object value1 = map1.get(mSortingKey);
             Object value2 = map2.get(mSortingKey);
@@ -261,13 +259,13 @@ public class ZoneList extends ListActivity {
             } else if (!isComparable(value2)) {
                 return -1;
             }
-            
+
             return ((Comparable) value1).compareTo(value2);
         }
-        
+
         private boolean isComparable(Object value) {
-            return (value != null) && (value instanceof Comparable); 
+            return (value != null) && (value instanceof Comparable);
         }
     }
-    
+
 }

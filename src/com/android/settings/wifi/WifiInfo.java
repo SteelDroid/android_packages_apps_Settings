@@ -21,7 +21,6 @@ import com.android.settings.R;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-
 /**
  * Wifi information menu item on the diagnostic screen
  */

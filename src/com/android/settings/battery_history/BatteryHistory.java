@@ -58,7 +58,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
     private static final int SECONDS_PER_MINUTE = 60;
     private static final int SECONDS_PER_HOUR = 60 * 60;
     private static final int SECONDS_PER_DAY = 24 * 60 * 60;
-    
+
     // Must be in sync with the values in res/values/array.xml (id battery_history_type_spinner)
     private static final int CPU_USAGE = 0;
     private static final int NETWORK_USAGE = 1;
@@ -71,24 +71,24 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
     private static final int UNPLUGGED = 0;
     private static final int CURRENT = 1;
     private static final int TOTAL = 2;
-    
+
     private BatteryStats mStats;
     private int mWhich = BatteryStats.STATS_SINCE_UNPLUGGED;
     private int mType = MISC_USAGE;
-    
+
     private GraphableButton[] mButtons;
     IBatteryStats mBatteryInfo;
-    
+
     private List<CpuUsage> mCpuUsage = new ArrayList<CpuUsage>();
     private List<NetworkUsage> mNetworkUsage = new ArrayList<NetworkUsage>();
     private List<SensorUsage> mSensorUsage = new ArrayList<SensorUsage>();
     private List<SensorUsage> mGpsUsage = new ArrayList<SensorUsage>();
     private List<WakelockUsage> mWakelockUsage = new ArrayList<WakelockUsage>();
     private List<MiscUsage> mMiscUsage = new ArrayList<MiscUsage>();
-    
+
     private boolean mHaveCpuUsage, mHaveNetworkUsage, mHaveSensorUsage,
             mHaveWakelockUsage, mHaveMiscUsage;
-    
+
     private LinearLayout mGraphLayout;
     private LinearLayout mTextLayout;
     private TextView mMessageText;
@@ -96,9 +96,9 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
     private Button mDetailsBackButton;
     private Spinner mTypeSpinner;
     private Spinner mWhichSpinner;
-    
+
     private boolean mDetailsShown = false;
-    
+
     private static String getLabel(String packageName, PackageManager pm) {
         try {
             ApplicationInfo ai = pm.getApplicationInfo(packageName, 0);
@@ -109,10 +109,10 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
         } catch (NameNotFoundException e) {
             return packageName;
         }
-        
+
         return "";
     }
-    
+
     void formatTime(double millis, StringBuilder sb) {
         int seconds = (int) Math.floor(millis / 1000);
         
@@ -139,23 +139,23 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
             sb.append(getString(R.string.battery_history_seconds, seconds));
         }
     }
-    
-    abstract class Graphable implements Comparable<Graphable> {        
+
+    abstract class Graphable implements Comparable<Graphable> {
         protected String mName;
         protected String mNamePackage;
         protected boolean mUniqueName;
         protected String[] mPackages;
         protected String[] mPackageNames;
-        
+
         public abstract String getLabel();
         public abstract double getSortValue();
         public abstract double[] getValues();
         public abstract void getInfo(StringBuilder info);
-        
+
         public double getMaxValue() {
-            return -Double.MAX_VALUE;            
+            return -Double.MAX_VALUE;
         }
-        
+
         public int compareTo(Graphable o) {
             double t = getSortValue();
             double ot = o.getSortValue();
@@ -168,7 +168,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                 return 0;
             }
         }
-                
+
         // Side effects: sets mName and mUniqueName
         void getNameForUid(int uid) {
             PackageManager pm = getPackageManager();
@@ -178,7 +178,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                 mNamePackage = null;
                 return;
             }
-            
+
             mPackageNames = new String[mPackages.length];
             System.arraycopy(mPackages, 0, mPackageNames, 0, mPackages.length);
             
@@ -217,7 +217,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
         double[] mUsage;
         double mTotalRuntime;
         long mStarts;
-        
+
         public CpuUsage(int uid, String process, long userTime, long systemTime,
                 long starts, long totalRuntime) {
             getNameForUid(uid);
@@ -225,29 +225,29 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
             PackageManager pm = BatteryHistory.this.getPackageManager();
             mName = BatteryHistory.getLabel(process, pm);
             mUsage = new double[2];
-            
+
             mUsage[0] = userTime;
             mUsage[1] = userTime + systemTime;
             mTotalRuntime = totalRuntime;
             mStarts = starts;
         }
-        
+
         public String getLabel() {
             return mName;
         }
-        
+
         public double getSortValue() {
             return mUsage[1];
         }
-        
+
         public double[] getValues() {
             return mUsage;
         }
-        
+
         public double getMaxValue() {
-            return mTotalRuntime;            
+            return mTotalRuntime;
         }
-        
+
         public void getInfo(StringBuilder info) {
             info.append(getString(R.string.battery_history_cpu_usage, mProcess));
             info.append("\n\n");
@@ -263,30 +263,30 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
             info.append(getString(R.string.battery_history_starts, mStarts));
         }
     }
-    
+
     class NetworkUsage extends Graphable {
         double[] mUsage;
-        
+
         public NetworkUsage(int uid, long received, long sent) {
             getNameForUid(uid);
-            
+
             mUsage = new double[2];
             mUsage[0] = received;
             mUsage[1] = received + sent;
         }
-        
+
         public String getLabel() {
             return mName;
         }
-        
+
         public double getSortValue() {
             return mUsage[1];
         }
-        
+
         public double[] getValues() {
             return mUsage;
         }
-        
+
         public void getInfo(StringBuilder info) {
             info.append(getString(R.string.battery_history_network_usage, mName));
             info.append("\n\n");
@@ -316,38 +316,38 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
             }
         }
     }
-    
+
     class SensorUsage extends Graphable {
         double[] mUsage;
         double mTotalRealtime;
         int mCount;
-        
+
         public SensorUsage(int uid, long time, int count, long totalRealtime) {
             getNameForUid(uid);
-            
+
             mUsage = new double[1];
             mUsage[0] = time;
             mTotalRealtime = totalRealtime;
-            
+
             mCount = count;
         }
-        
+
         public String getLabel() {
             return mName;
         }
-        
+
         public double getSortValue() {
             return mUsage[0];
         }
-        
+
         public double[] getValues() {
             return mUsage;
         }
-        
+
         public double getMaxValue() {
-            return mTotalRealtime;            
+            return mTotalRealtime;
         }
-        
+
         public void getInfo(StringBuilder info) {
             info.append(getString(R.string.battery_history_sensor));
             info.append(mName);
@@ -357,39 +357,38 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
             info.append("\n\n");
         }
     }
-    
-    
+
     class WakelockUsage extends Graphable {
         double[] mUsage;
         double mTotalRealtime;
         int mCount;
-        
+
         public WakelockUsage(int uid, long time, int count, long totalRealtime) {
             getNameForUid(uid);
-            
+
             mUsage = new double[1];
             mUsage[0] = time;
             mTotalRealtime = totalRealtime;
-            
+
             mCount = count;
         }
-        
+
         public String getLabel() {
             return mName;
         }
-        
+
         public double getSortValue() {
             return mUsage[0];
         }
-        
+
         public double[] getValues() {
             return mUsage;
         }
-        
+
         public double getMaxValue() {
-            return mTotalRealtime;            
+            return mTotalRealtime;
         }
-        
+
         public void getInfo(StringBuilder info) {
             info.append(getString(R.string.battery_history_wakelock));
             info.append(mName);
@@ -399,51 +398,51 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
             info.append("\n\n");
         }
     }
-    
+
     class MiscUsage extends Graphable {
         int mInfoLabelRes;
         String mInfoLabel;
         double[] mUsage;
         double mTotalRealtime;
-        
+
         public MiscUsage(String name, int infoLabelRes, long value,
                 long totalRealtime) {
             mName = name;
-            
+
             mInfoLabelRes = infoLabelRes;
-            
+
             mUsage = new double[2];
             mUsage[0] = value;
             mTotalRealtime = totalRealtime;
         }
-        
+
         public MiscUsage(String name, String infoLabel, long value,
                 long totalRealtime) {
             mName = name;
-            
+
             mInfoLabel = infoLabel;
-            
+
             mUsage = new double[2];
             mUsage[0] = value;
             mTotalRealtime = totalRealtime;
         }
-        
+
         public String getLabel() {
             return mName;
         }
-        
+
         public double getSortValue() {
             return mUsage[1];
         }
-        
+
         public double[] getValues() {
             return mUsage;
         }
-        
+
         public double getMaxValue() {
-            return mTotalRealtime;            
+            return mTotalRealtime;
         }
-        
+
         public void getInfo(StringBuilder info) {
             info.append(mInfoLabel != null ? mInfoLabel : getString(mInfoLabelRes));
             info.append(' ');
@@ -453,7 +452,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
             info.append("%)");
         }
     }
-    
+
     private List<? extends Graphable> getGraphRecords() {
         switch (mType) {
             case CPU_USAGE: return mCpuUsage;
@@ -466,42 +465,42 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                 return (List<? extends Graphable>) null; // TODO
         }
     }
-    
+
     private void displayGraph() {
         Log.i(TAG, "displayGraph");
 
         collectStatistics();
-        
+
         // Hide the UI and selectively enable it below
         mMessageText.setVisibility(View.GONE);
         for (int i = 0; i < mButtons.length; i++) {
             mButtons[i].setVisibility(View.INVISIBLE);
         }
-        
+
         double maxValue = -Double.MAX_VALUE;
-        
+
         List<? extends Graphable> records = getGraphRecords();
         for (Graphable g : records) {
             double[] values = g.getValues();
             maxValue = Math.max(maxValue, values[values.length - 1]);
             maxValue = Math.max(maxValue, g.getMaxValue());
         }
-        
+
         int[] colors = new int[2];
         colors[0] = 0xff0000ff;
         colors[1] = 0xffff0000;
-        
+
         for (int i = 0; i < mButtons.length; i++) {
             mButtons[i].setVisibility(View.INVISIBLE);
         }
-        
+
         int numRecords = Math.min(records.size(), mButtons.length);
         if (numRecords == 0) {
              mMessageText.setVisibility(View.VISIBLE);
              mMessageText.setText(R.string.battery_history_no_data);
         } else {
             for (int i = 0; i < numRecords; i++) {
-                Graphable r = records.get(i);           
+                Graphable r = records.get(i);
 
                 mButtons[i].setText(r.getLabel());
                 mButtons[i].setValues(r.getValues(), maxValue);
@@ -509,13 +508,13 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
             }
         }
     }
-    
+
     private void hideDetails() {
         mTextLayout.setVisibility(View.GONE);
         mGraphLayout.setVisibility(View.VISIBLE);
         mDetailsShown = false;
     }
-    
+
     private void showDetails(int id) {
         mGraphLayout.setVisibility(View.GONE);
         mTextLayout.setVisibility(View.VISIBLE);
@@ -534,10 +533,10 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
 
     private void processCpuUsage() {
         mCpuUsage.clear();
-        
+
         long uSecTime = SystemClock.uptimeMillis() * 1000;
         final long uSecNow = mStats.computeBatteryUptime(uSecTime, mWhich) / 1000;
-        
+
         SparseArray<? extends Uid> uidStats = mStats.getUidStats();
         final int NU = uidStats.size();
         for (int iu = 0; iu < NU; iu++) {
@@ -562,15 +561,15 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
         }
         Collections.sort(mCpuUsage);
     }
-    
+
     private void processNetworkUsage() {
         mNetworkUsage.clear();
-        
+
         SparseArray<? extends Uid> uidStats = mStats.getUidStats();
         final int NU = uidStats.size();
         for (int iu = 0; iu < NU; iu++) {
             Uid u = uidStats.valueAt(iu);
-            
+
             long received = u.getTcpBytesReceived(mWhich);
             long sent = u.getTcpBytesSent(mWhich);
             if (received + sent > 0) {
@@ -579,20 +578,20 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
         }
         Collections.sort(mNetworkUsage);
     }
-    
+
     private void processSensorUsage() {
         mGpsUsage.clear();
         mSensorUsage.clear();
-        
+
         long uSecTime = SystemClock.elapsedRealtime() * 1000;
         final long uSecNow = mStats.computeBatteryRealtime(uSecTime, mWhich) / 1000;
-        
+
         SparseArray<? extends Uid> uidStats = mStats.getUidStats();
         final int NU = uidStats.size();
         for (int iu = 0; iu < NU; iu++) {
             Uid u = uidStats.valueAt(iu);
             int uid = u.getUid();
-            
+
             Map<Integer, ? extends BatteryStats.Uid.Sensor> sensorStats = u.getSensorStats();
             long timeGps = 0;
             int countGps = 0;
@@ -619,7 +618,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                     }
                 }
             }
-            
+
             if (timeGps > 0) {
                 mGpsUsage.add(new SensorUsage(uid, timeGps, countGps, uSecNow));
             }
@@ -627,23 +626,23 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                 mSensorUsage.add(new SensorUsage(uid, timeOther, countOther, uSecNow));
             }
         }
-        
+
         Collections.sort(mGpsUsage);
         Collections.sort(mSensorUsage);
     }
-    
+
     private void processWakelockUsage() {
         mWakelockUsage.clear();
-        
+
         long uSecTime = SystemClock.elapsedRealtime() * 1000;
         final long uSecNow = mStats.computeBatteryRealtime(uSecTime, mWhich) / 1000;
-        
+
         SparseArray<? extends Uid> uidStats = mStats.getUidStats();
         final int NU = uidStats.size();
         for (int iu = 0; iu < NU; iu++) {
             Uid u = uidStats.valueAt(iu);
             int uid = u.getUid();
-            
+
             Map<String, ? extends BatteryStats.Uid.Wakelock> wakelockStats = u.getWakelockStats();
             long time = 0;
             int count = 0;
@@ -660,18 +659,18 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                     }
                 }
             }
-            
+
             if (time > 0) {
                 mWakelockUsage.add(new WakelockUsage(uid, time, count, uSecNow));
             }
         }
-        
+
         Collections.sort(mWakelockUsage);
     }
-    
+
     private final StringBuilder mFormatBuilder = new StringBuilder(8);
     private final Formatter mFormatter = new Formatter(mFormatBuilder);
-    
+
     private final String formatRatio(long num, long den) {
         if (den == 0L) {
             return "---%";
@@ -681,14 +680,14 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
         mFormatter.format("%.1f%%", perc);
         return mFormatBuilder.toString();
     }
-    
+
     private void processMiscUsage() {
         mMiscUsage.clear();
-        
+
         long rawRealtime = SystemClock.elapsedRealtime() * 1000;
         final long batteryRealtime = mStats.getBatteryRealtime(rawRealtime);
         final long whichRealtime = mStats.computeBatteryRealtime(rawRealtime, mWhich) / 1000;
-        
+
         long time = mStats.computeBatteryUptime(SystemClock.uptimeMillis() * 1000, mWhich) / 1000;
         if (time > 0) {
             mMiscUsage.add(new MiscUsage(getString(
@@ -697,7 +696,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                     R.string.battery_history_awake,
                     time, whichRealtime)); 
         }
-        
+
         time = mStats.getScreenOnTime(batteryRealtime, mWhich) / 1000;
         if (time > 0) {
             mMiscUsage.add(new MiscUsage(getString(
@@ -706,7 +705,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                     R.string.battery_history_screen_on,
                     time, whichRealtime)); 
         }
-        
+
         time = mStats.getPhoneOnTime(batteryRealtime, mWhich) / 1000;
         if (time > 0) {
             mMiscUsage.add(new MiscUsage(getString(
@@ -715,7 +714,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                     R.string.battery_history_phone_on,
                     time, whichRealtime)); 
         }
-        
+
         time = mStats.getWifiOnTime(batteryRealtime, mWhich) / 1000;
         if (time > 0) {
             mMiscUsage.add(new MiscUsage(getString(
@@ -724,7 +723,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                     R.string.battery_history_wifi_on,
                     time, whichRealtime)); 
         }
-        
+
         time = mStats.getGlobalWifiRunningTime(batteryRealtime, mWhich) / 1000;
         if (time > 0) {
             mMiscUsage.add(new MiscUsage(getString(
@@ -733,7 +732,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                     R.string.battery_history_wifi_running,
                     time, whichRealtime)); 
         }
-        
+
         time = mStats.getBluetoothOnTime(batteryRealtime, mWhich) / 1000;
         if (time > 0) {
             mMiscUsage.add(new MiscUsage(getString(
@@ -742,10 +741,10 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                     R.string.battery_history_bluetooth_on,
                     time, whichRealtime)); 
         }
-        
+
         Collections.sort(mMiscUsage);
     }
-    
+
     private void collectStatistics() {
         if (mType == CPU_USAGE) {
             if (!mHaveCpuUsage) {
@@ -778,7 +777,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
             }
         }
     }
-    
+
     private void load() {
         try {
             byte[] data = mBatteryInfo.getStatistics();
@@ -790,24 +789,24 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                     .createFromParcel(parcel);
             //Log.i(TAG, "RECEIVED BATTERY INFO:");
             //mStats.dumpLocked(new LogPrinter(Log.INFO, TAG));
-            
+
             mHaveCpuUsage =  mHaveNetworkUsage =  mHaveSensorUsage
                     = mHaveWakelockUsage = mHaveMiscUsage = false;
         } catch (RemoteException e) {
             Log.e(TAG, "RemoteException:", e);
         }
     }
-    
+
     public void onClick(View v) {
         if (v == mDetailsBackButton) {
             hideDetails();
             return;
         }
-        
+
         int id = ((Integer) v.getTag()).intValue();
         showDetails(id);
     }
-    
+
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && mDetailsShown) {
             hideDetails();
@@ -818,7 +817,7 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         int oldWhich = mWhich;
-        
+
         if (parent.equals(mTypeSpinner)) {
             mType = position;
         } else if (parent.equals(mWhichSpinner)) {
@@ -834,19 +833,19 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
                     break;
             }
         }
-        
+
         if (oldWhich != mWhich) {
             mHaveCpuUsage =  mHaveNetworkUsage =  mHaveSensorUsage
                     = mHaveWakelockUsage = mHaveMiscUsage = false;
         }
-        
+
         displayGraph();
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
         // Do nothing
     }
-    
+
     @Override
     public Object onRetainNonConfigurationInstance() {
         BatteryStats stats = mStats;
@@ -868,9 +867,9 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         Log.i(TAG, "onCreate");
-        
+
         setContentView(R.layout.battery_history);
-        
+
         mStats = (BatteryStats)getLastNonConfigurationInstance();
         if (icicle != null) {
             if (mStats == null) {
@@ -879,20 +878,20 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
             mType = icicle.getInt("type");
             mWhich = icicle.getInt("which");
         }
-        
+
         mGraphLayout = (LinearLayout) findViewById(R.id.graphLayout);
         mTextLayout = (LinearLayout) findViewById(R.id.textLayout);
         mDetailsText = (TextView) findViewById(R.id.detailsText);
         mMessageText = (TextView) findViewById(R.id.messageText);
-        
+
         mTypeSpinner = (Spinner) findViewById(R.id.typeSpinner);
         mTypeSpinner.setSelection(mType);
         mTypeSpinner.setOnItemSelectedListener(this);
-        
+
         mWhichSpinner = (Spinner) findViewById(R.id.whichSpinner);
         mWhichSpinner.setOnItemSelectedListener(this);
         mWhichSpinner.setEnabled(true);
-        
+
         mButtons = new GraphableButton[8];
         mButtons[0] = (GraphableButton) findViewById(R.id.button0);
         mButtons[1] = (GraphableButton) findViewById(R.id.button1);
@@ -902,15 +901,15 @@ public class BatteryHistory extends Activity implements OnClickListener, OnItemS
         mButtons[5] = (GraphableButton) findViewById(R.id.button5);
         mButtons[6] = (GraphableButton) findViewById(R.id.button6);
         mButtons[7] = (GraphableButton) findViewById(R.id.button7);
-        
+
         for (int i = 0; i < mButtons.length; i++) {
             mButtons[i].setTag(i);
             mButtons[i].setOnClickListener(this);
         }
-        
+
         mBatteryInfo = IBatteryStats.Stub.asInterface(
                 ServiceManager.getService("batteryinfo"));
-        
+
         if (mStats == null) {
             load();
         }

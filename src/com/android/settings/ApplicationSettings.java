@@ -30,7 +30,7 @@ import android.provider.Settings;
 
 public class ApplicationSettings extends PreferenceActivity implements
         DialogInterface.OnClickListener {
-    
+
     private static final String KEY_TOGGLE_INSTALL_APPLICATIONS = "toggle_install_applications";
     private static final String KEY_APP_INSTALL_LOCATION = "app_install_location";
     private static final String KEY_QUICK_LAUNCH = "quick_launch";
@@ -39,11 +39,11 @@ public class ApplicationSettings extends PreferenceActivity implements
     private static final int APP_INSTALL_AUTO = 0;
     private static final int APP_INSTALL_DEVICE = 1;
     private static final int APP_INSTALL_SDCARD = 2;
-    
+
     private static final String APP_INSTALL_DEVICE_ID = "device";
     private static final String APP_INSTALL_SDCARD_ID = "sdcard";
     private static final String APP_INSTALL_AUTO_ID = "auto";
-    
+
     private CheckBoxPreference mToggleAppInstallation;
 
     private ListPreference mInstallLocation;
@@ -132,12 +132,12 @@ public class ApplicationSettings extends PreferenceActivity implements
 
     private void setNonMarketAppsAllowed(boolean enabled) {
         // Change the system setting
-        Settings.Secure.putInt(getContentResolver(), Settings.Secure.INSTALL_NON_MARKET_APPS, 
+        Settings.Secure.putInt(getContentResolver(), Settings.Secure.INSTALL_NON_MARKET_APPS,
                                 enabled ? 1 : 0);
     }
-    
+
     private boolean isNonMarketAppsAllowed() {
-        return Settings.Secure.getInt(getContentResolver(), 
+        return Settings.Secure.getInt(getContentResolver(),
                                       Settings.Secure.INSTALL_NON_MARKET_APPS, 0) > 0;
     }
 

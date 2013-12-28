@@ -42,7 +42,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class LanguageSettings extends PreferenceActivity {
-    
+
     private static final String KEY_PHONE_LANGUAGE = "phone_language";
     private static final String KEY_KEYBOARD_SETTINGS_CATEGORY = "keyboard_settings_category";
     private static final String KEY_HARDKEYBOARD_CATEGORY = "hardkeyboard_category";
@@ -54,12 +54,12 @@ public class LanguageSettings extends PreferenceActivity {
 
     final TextUtils.SimpleStringSplitter mStringColonSplitter
             = new TextUtils.SimpleStringSplitter(':');
-    
+
     private String mLastInputMethodId;
     private String mLastTickedInputMethodId;
 
     private AlertDialog mDialog = null;
-    
+
     static public String getInputMethodIdFromKey(String key) {
         return key;
     }
@@ -87,12 +87,12 @@ public class LanguageSettings extends PreferenceActivity {
         mCheckboxes = new ArrayList<CheckBoxPreference>();
         onCreateIMM();
     }
-    
+
     private boolean isSystemIme(InputMethodInfo property) {
         return (property.getServiceInfo().applicationInfo.flags
                 & ApplicationInfo.FLAG_SYSTEM) != 0;
     }
-    
+
     private void onCreateIMM() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
@@ -100,10 +100,10 @@ public class LanguageSettings extends PreferenceActivity {
 
         mLastInputMethodId = Settings.Secure.getString(getContentResolver(),
             Settings.Secure.DEFAULT_INPUT_METHOD);
-        
+
         PreferenceGroup keyboardSettingsCategory = (PreferenceGroup) findPreference(
                 KEY_KEYBOARD_SETTINGS_CATEGORY);
-        
+
         int N = (mInputMethodProperties == null ? 0 : mInputMethodProperties
                 .size());
         for (int i = 0; i < N; ++i) {
@@ -157,7 +157,7 @@ public class LanguageSettings extends PreferenceActivity {
                 enabled.add(splitter.next());
             }
         }
-        
+
         // Update the statuses of the Check Boxes.
         int N = mInputMethodProperties.size();
         for (int i = 0; i < N; ++i) {
@@ -221,7 +221,7 @@ public class LanguageSettings extends PreferenceActivity {
                 mLastInputMethodId = null;
             }
         }
-        
+
         Settings.Secure.putString(getContentResolver(),
             Settings.Secure.ENABLED_INPUT_METHODS, builder.toString());
         Settings.Secure.putString(getContentResolver(),
@@ -233,7 +233,7 @@ public class LanguageSettings extends PreferenceActivity {
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        
+
         // Input Method stuff
         if (Utils.isMonkeyRunning()) {
             return false;

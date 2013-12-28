@@ -42,43 +42,43 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class DateTimeSettings 
-        extends PreferenceActivity 
+public class DateTimeSettings
+        extends PreferenceActivity
         implements OnSharedPreferenceChangeListener,
                 TimePickerDialog.OnTimeSetListener , DatePickerDialog.OnDateSetListener {
 
     private static final String HOURS_12 = "12";
     private static final String HOURS_24 = "24";
-    
+
     private Calendar mDummyDate;
     private static final String KEY_DATE_FORMAT = "date_format";
     private static final String KEY_AUTO_TIME = "auto_time";
 
     private static final int DIALOG_DATEPICKER = 0;
     private static final int DIALOG_TIMEPICKER = 1;
-    
+
     private CheckBoxPreference mAutoPref;
     private Preference mTimePref;
     private Preference mTime24Pref;
     private Preference mTimeZone;
     private Preference mDatePref;
     private ListPreference mDateFormat;
-    
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        
+
         addPreferencesFromResource(R.xml.date_time_prefs);
-        
-        initUI();        
+
+        initUI();
     }
-    
+
     private void initUI() {
         boolean autoEnabled = getAutoState();
 
         mDummyDate = Calendar.getInstance();
         mDummyDate.set(mDummyDate.get(Calendar.YEAR), 11, 31, 13, 0, 0);
-        
+
         mAutoPref = (CheckBoxPreference) findPreference(KEY_AUTO_TIME);
         mAutoPref.setChecked(autoEnabled);
         mTimePref = findPreference("time");
@@ -86,7 +86,7 @@ public class DateTimeSettings
         mTimeZone = findPreference("timezone");
         mDatePref = findPreference("date");
         mDateFormat = (ListPreference) findPreference(KEY_DATE_FORMAT);
-        
+
         String [] dateFormats = getResources().getStringArray(R.array.date_format_values);
         String [] formattedDates = new String[dateFormats.length];
         String currentFormat = getDateFormat();
@@ -107,21 +107,20 @@ public class DateTimeSettings
                 formattedDates[i] = formatted;
             }
         }
-        
+
         mDateFormat.setEntries(formattedDates);
         mDateFormat.setEntryValues(R.array.date_format_values);
         mDateFormat.setValue(currentFormat);
-        
+
         mTimePref.setEnabled(!autoEnabled);
         mDatePref.setEnabled(!autoEnabled);
         mTimeZone.setEnabled(!autoEnabled);
     }
 
-    
     @Override
     protected void onResume() {
         super.onResume();
-        
+
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 
         ((CheckBoxPreference)mTime24Pref).setChecked(is24Hour());
@@ -132,17 +131,17 @@ public class DateTimeSettings
         filter.addAction(Intent.ACTION_TIME_CHANGED);
         filter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
         registerReceiver(mIntentReceiver, filter, null, null);
-        
+
         updateTimeAndDateDisplay();
     }
 
-    @Override 
+    @Override
     protected void onPause() {
         super.onPause();
         unregisterReceiver(mIntentReceiver);
         getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
     }
-    
+
     private void updateTimeAndDateDisplay() {
         java.text.DateFormat shortDateFormat = DateFormat.getDateFormat(this);
         Date now = Calendar.getInstance().getTime();
@@ -178,7 +177,7 @@ public class DateTimeSettings
             SystemClock.setCurrentTimeMillis(when);
         }
         updateTimeAndDateDisplay();
-        
+
         // We don't need to call timeUpdated() here because the TIME_CHANGED
         // broadcast is sent by the AlarmManager as a side effect of setting the
         // SystemClock time.
@@ -261,7 +260,7 @@ public class DateTimeSettings
             break;
         }
     }
-    
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mDatePref) {
@@ -281,39 +280,39 @@ public class DateTimeSettings
         }
         return false;
     }
-    
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
             Intent data) {
         updateTimeAndDateDisplay();
     }
-    
+
     private void timeUpdated() {
         Intent timeChanged = new Intent(Intent.ACTION_TIME_CHANGED);
         sendBroadcast(timeChanged);
     }
-    
-    /*  Get & Set values from the system settings  */
-    
+
+    /* Get & Set values from the system settings */
+
     private boolean is24Hour() {
         return DateFormat.is24HourFormat(this);
     }
-    
+
     private void set24Hour(boolean is24Hour) {
         Settings.System.putString(getContentResolver(),
                 Settings.System.TIME_12_24,
                 is24Hour? HOURS_24 : HOURS_12);
     }
-    
+
     private String getDateFormat() {
-        return Settings.System.getString(getContentResolver(), 
+        return Settings.System.getString(getContentResolver(),
                 Settings.System.DATE_FORMAT);
     }
-    
+
     private boolean getAutoState() {
         try {
-            return Settings.System.getInt(getContentResolver(), 
-                Settings.System.AUTO_TIME) > 0;            
+            return Settings.System.getInt(getContentResolver(),
+                Settings.System.AUTO_TIME) > 0;
         } catch (SettingNotFoundException snfe) {
             return true;
         }
@@ -324,11 +323,11 @@ public class DateTimeSettings
             format = null;
         }
 
-        Settings.System.putString(getContentResolver(), Settings.System.DATE_FORMAT, format);        
+        Settings.System.putString(getContentResolver(), Settings.System.DATE_FORMAT, format);
     }
-    
-    /*  Helper routines to format timezone */
-    
+
+    /* Helper routines to format timezone */
+
     private String getTimeZoneText() {
         TimeZone    tz = java.util.Calendar.getInstance().getTimeZone();
         boolean daylight = tz.inDaylightTime(new Date());
@@ -339,7 +338,7 @@ public class DateTimeSettings
             append(", ").
             append(tz.getDisplayName(daylight, TimeZone.LONG));
 
-        return sb.toString();        
+        return sb.toString();
     }
 
     private char[] formatOffset(int off) {
@@ -370,7 +369,7 @@ public class DateTimeSettings
 
         return buf;
     }
-    
+
     private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {

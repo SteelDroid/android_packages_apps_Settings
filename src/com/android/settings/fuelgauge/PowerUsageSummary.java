@@ -92,7 +92,7 @@ public class PowerUsageSummary extends PreferenceActivity implements Runnable {
     private ArrayList<BatterySipper> mRequestQueue = new ArrayList<BatterySipper>();
     private Thread mRequestThread;
     private boolean mAbort;
-    
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -191,7 +191,7 @@ public class PowerUsageSummary extends PreferenceActivity implements Runnable {
                 PrintWriter printWriter = new PrintWriter(result);
                 mStats.dumpLocked(printWriter, "", mStatsType, uid.getUid());
                 intent.putExtra(PowerUsageDetail.EXTRA_REPORT_DETAILS, result.toString());
-                
+
                 result = new StringWriter();
                 printWriter = new PrintWriter(result);
                 mStats.dumpCheckinLocked(printWriter, mStatsType, uid.getUid());
@@ -460,7 +460,7 @@ public class PowerUsageSummary extends PreferenceActivity implements Runnable {
             // Add cost of holding a wake lock
             power += (wakelockTime
                     * mPowerProfile.getAveragePower(PowerProfile.POWER_CPU_AWAKE)) / 1000;
-            
+
             // Add cost of data traffic
             long tcpBytesReceived = u.getTcpBytesReceived(mStatsType);
             long tcpBytesSent = u.getTcpBytesSent(mStatsType);

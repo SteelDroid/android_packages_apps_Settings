@@ -75,15 +75,15 @@ public class WifiEnabler implements Preference.OnPreferenceChangeListener {
         mContext.registerReceiver(mReceiver, mIntentFilter);
         mCheckBox.setOnPreferenceChangeListener(this);
     }
-    
+
     public void pause() {
         mContext.unregisterReceiver(mReceiver);
         mCheckBox.setOnPreferenceChangeListener(null);
     }
-    
+
     public boolean onPreferenceChange(Preference preference, Object value) {
         boolean enable = (Boolean) value;
-    
+
         // Show toast message if Wi-Fi is not allowed in airplane mode
         if (enable && !WirelessSettings
                 .isRadioAllowed(mContext, Settings.System.RADIO_WIFI)) {
@@ -109,7 +109,7 @@ public class WifiEnabler implements Preference.OnPreferenceChangeListener {
         // Don't update UI to opposite state until we're sure
         return false;
     }
-    
+
     private void handleWifiStateChanged(int state) {
         switch (state) {
             case WifiManager.WIFI_STATE_ENABLING:

@@ -195,7 +195,6 @@ public class VpnEditor extends PreferenceActivity {
         }
     }
 
-
     @Override
     protected Dialog onCreateDialog(int id) {
 

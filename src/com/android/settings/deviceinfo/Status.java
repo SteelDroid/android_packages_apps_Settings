@@ -81,7 +81,7 @@ public class Status extends PreferenceActivity {
     private Preference mUptime;
 
     private static String sUnknown;
-    
+
     private Preference mBatteryStatus;
     private Preference mBatteryLevel;
 
@@ -120,7 +120,7 @@ public class Status extends PreferenceActivity {
     }
 
     private BroadcastReceiver mBatteryInfoReceiver = new BroadcastReceiver() {
-        
+
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
@@ -128,9 +128,9 @@ public class Status extends PreferenceActivity {
 
                 int level = intent.getIntExtra("level", 0);
                 int scale = intent.getIntExtra("scale", 100);
-                
+
                 mBatteryLevel.setSummary(String.valueOf(level * 100 / scale) + "%");
-                
+
                 int plugType = intent.getIntExtra("plugged", 0);
                 int status = intent.getIntExtra("status", BatteryManager.BATTERY_STATUS_UNKNOWN);
                 String statusString;
@@ -163,30 +163,30 @@ public class Status extends PreferenceActivity {
             updateNetworkType();
         }
     };
-    
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         Preference removablePref;
 
         mHandler = new MyHandler(this);
-        
+
         mTelephonyManager = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
 
         addPreferencesFromResource(R.xml.device_info_status);
         mBatteryLevel = findPreference("battery_level");
         mBatteryStatus = findPreference("battery_status");
-        
+
         mRes = getResources();
         if (sUnknown == null) {
             sUnknown = mRes.getString(R.string.device_info_default);
         }
-        
+
         mPhone = PhoneFactory.getDefaultPhone();
         // Note - missing in zaku build, be careful later...
         mSignalStrength = findPreference("signal_strength");			
         mUptime = findPreference("up_time");
-        
+
         //NOTE "imei" is the "Device ID" since it represents the IMEI in GSM and the MEID in CDMA
         if (mPhone.getPhoneName().equals("CDMA")) {
             setSummaryText("meid_number", mPhone.getMeid());
@@ -245,7 +245,7 @@ public class Status extends PreferenceActivity {
         setWifiStatus();
         setBtStatus();
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -256,13 +256,13 @@ public class Status extends PreferenceActivity {
         updateSignalStrength();
         updateServiceState(mPhone.getServiceState());
         updateDataState();
-        
+
         mTelephonyManager.listen(mPhoneStateListener,
                   PhoneStateListener.LISTEN_DATA_CONNECTION_STATE);
 
         mHandler.sendEmptyMessage(EVENT_UPDATE_STATS);
     }
-    
+
     @Override
     public void onPause() {
         super.onPause();
@@ -296,12 +296,12 @@ public class Status extends PreferenceActivity {
                  findPreference(preference).setSummary(text);
              }
     }
-    
+
     private void updateNetworkType() {
         // Whether EDGE, UMTS, etc...
         setSummary("network_type", TelephonyProperties.PROPERTY_DATA_NETWORK_TYPE, sUnknown);
     }
-    
+
     private void updateDataState() {
         int state = mTelephonyManager.getDataState();
         String display = mRes.getString(R.string.radioInfo_unknown);
@@ -320,14 +320,14 @@ public class Status extends PreferenceActivity {
                 display = mRes.getString(R.string.radioInfo_data_disconnected);
                 break;
         }
-        
+
         setSummaryText("data_state", display);
     }
 
     private void updateServiceState(ServiceState serviceState) {
         int state = serviceState.getState();
         String display = mRes.getString(R.string.radioInfo_unknown);
-        
+
         switch (state) {
             case ServiceState.STATE_IN_SERVICE:
                 display = mRes.getString(R.string.radioInfo_service_in);
@@ -340,9 +340,9 @@ public class Status extends PreferenceActivity {
                 display = mRes.getString(R.string.radioInfo_service_off);
                 break;
         }
-        
+
         setSummaryText("service_state", display);
-        
+
         if (serviceState.getRoaming()) {
             setSummaryText("roaming_state", mRes.getString(R.string.radioInfo_roaming_in));
         } else {
@@ -350,7 +350,7 @@ public class Status extends PreferenceActivity {
         }
         setSummaryText("operator_name", serviceState.getOperatorAlphaLong());
     }
-    
+
     void updateSignalStrength() {
         // TODO PhoneStateIntentReceiver is deprecated and PhoneStateListener
         // should probably used instead.
@@ -432,7 +432,7 @@ public class Status extends PreferenceActivity {
 
         mUptime.setSummary(convert(ut));
     }
-    
+
     private String pad(int n) {
         if (n >= 10) {
             return String.valueOf(n);

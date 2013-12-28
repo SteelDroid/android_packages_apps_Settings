@@ -30,7 +30,7 @@ import java.util.Map;
 public class ZonePicker extends ListActivity {
 
     private ArrayAdapter<CharSequence> mFilterAdapter;
-    
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -38,7 +38,7 @@ public class ZonePicker extends ListActivity {
                 R.array.timezone_filters, android.R.layout.simple_list_item_1);
         setListAdapter(mFilterAdapter);
     }
-    
+
     protected void addItem(List<Map> data, String name, String zone) {
         HashMap temp = new HashMap();
         temp.put("title", name);
@@ -56,15 +56,15 @@ public class ZonePicker extends ListActivity {
         Intent zoneList = new Intent();
         zoneList.setClass(this, ZoneList.class);
         zoneList.putExtra("filter", filter);
-        
+
         startActivityForResult(zoneList, 0);
     }
-    
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // If subactivity has resulted in a timezone selection, close this act.
         if (resultCode == RESULT_OK) {
             finish();
         }
-    }    
+    }
 }

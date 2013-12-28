@@ -77,7 +77,7 @@ public class InstalledAppDetails extends Activity
     private static final String TAG="InstalledAppDetails";
     static final boolean SUPPORT_DISABLE_APPS = false;
     private static final boolean localLOGV = false;
-    
+
     private PackageManager mPm;
     private IUsbManager mUsbManager;
     private ApplicationsState mState;
@@ -102,30 +102,30 @@ public class InstalledAppDetails extends Activity
     private Button mClearDataButton;
     private Button mMoveAppButton;
     private int mMoveErrorCode;
-    
+
     private PackageMoveObserver mPackageMoveObserver;
-    
+
     private boolean mHaveSizes = false;
     private long mLastCodeSize = -1;
     private long mLastDataSize = -1;
     private long mLastCacheSize = -1;
     private long mLastTotalSize = -1;
-    
+
     //internal constants used in Handler
     private static final int OP_SUCCESSFUL = 1;
     private static final int OP_FAILED = 2;
     private static final int CLEAR_USER_DATA = 1;
     private static final int CLEAR_CACHE = 3;
     private static final int PACKAGE_MOVE = 4;
-    
+
     // invalid size value used initially and also when size retrieval through PackageManager
     // fails for whatever reason
     private static final int SIZE_INVALID = -1;
-    
+
     // Resource strings
     private CharSequence mInvalidSizeStr;
     private CharSequence mComputingStr;
-    
+
     // Dialog identifiers used in showDialog
     private static final int DLG_BASE = 0;
     private static final int DLG_CLEAR_DATA = DLG_BASE + 1;
@@ -134,7 +134,7 @@ public class InstalledAppDetails extends Activity
     private static final int DLG_CANNOT_CLEAR_DATA = DLG_BASE + 4;
     private static final int DLG_FORCE_STOP = DLG_BASE + 5;
     private static final int DLG_MOVE_FAILED = DLG_BASE + 6;
-    
+
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             // If the activity is gone, don't process any more messages.
@@ -157,7 +157,7 @@ public class InstalledAppDetails extends Activity
             }
         }
     };
-    
+
     class ClearUserDataObserver extends IPackageDataObserver.Stub {
        public void onRemoveCompleted(final String packageName, final boolean succeeded) {
            final Message msg = mHandler.obtainMessage(CLEAR_USER_DATA);
@@ -165,7 +165,7 @@ public class InstalledAppDetails extends Activity
            mHandler.sendMessage(msg);
         }
     }
-    
+
     class ClearCacheObserver extends IPackageDataObserver.Stub {
         public void onRemoveCompleted(final String packageName, final boolean succeeded) {
             final Message msg = mHandler.obtainMessage(CLEAR_CACHE);
@@ -181,14 +181,14 @@ public class InstalledAppDetails extends Activity
             mHandler.sendMessage(msg);
         }
     }
-    
+
     private String getSizeStr(long size) {
         if (size == SIZE_INVALID) {
             return mInvalidSizeStr.toString();
         }
         return Formatter.formatFileSize(this, size);
     }
-    
+
     private void initDataButtons() {
         if ((mAppEntry.info.flags&(ApplicationInfo.FLAG_SYSTEM
                 | ApplicationInfo.FLAG_ALLOW_CLEAR_USER_DATA))
@@ -300,39 +300,39 @@ public class InstalledAppDetails extends Activity
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        
+
         mState = ApplicationsState.getInstance(getApplication());
         mPm = getPackageManager();
         IBinder b = ServiceManager.getService(Context.USB_SERVICE);
         mUsbManager = IUsbManager.Stub.asInterface(b);
 
         mCanBeOnSdCardChecker = new CanBeOnSdCardChecker();
-        
+
         setContentView(R.layout.installed_app_details);
-        
+
         mComputingStr = getText(R.string.computing_size);
-        
+
         // Set default values on sizes
         mTotalSize = (TextView)findViewById(R.id.total_size_text);
         mAppSize = (TextView)findViewById(R.id.application_size_text);
         mDataSize = (TextView)findViewById(R.id.data_size_text);
-        
+
         // Get Control button panel
         View btnPanel = findViewById(R.id.control_buttons_panel);
         mForceStopButton = (Button) btnPanel.findViewById(R.id.left_button);
         mForceStopButton.setText(R.string.force_stop);
         mUninstallButton = (Button)btnPanel.findViewById(R.id.right_button);
         mForceStopButton.setEnabled(false);
-        
+
         // Initialize clear data and move install location buttons
         View data_buttons_panel = findViewById(R.id.data_buttons_panel);
         mClearDataButton = (Button) data_buttons_panel.findViewById(R.id.left_button);
         mMoveAppButton = (Button) data_buttons_panel.findViewById(R.id.right_button);
-        
+
         // Cache section
         mCacheSize = (TextView) findViewById(R.id.cache_size_text);
         mClearCacheButton = (Button) findViewById(R.id.clear_cache_button);
-        
+
         mActivitiesButton = (Button)findViewById(R.id.clear_activities_button);
     }
 
@@ -360,7 +360,7 @@ public class InstalledAppDetails extends Activity
     @Override
     public void onResume() {
         super.onResume();
-        
+
         mState.resume(this);
         if (!refreshUi()) {
             setIntentAndFinish(true, true);
@@ -405,15 +405,15 @@ public class InstalledAppDetails extends Activity
         if (mMoveInProgress) {
             return true;
         }
-        
+
         Intent intent = getIntent();
         final String packageName = intent.getData().getSchemeSpecificPart();
         mAppEntry = mState.getEntry(packageName);
-        
+
         if (mAppEntry == null) {
             return false; // onCreate must have failed, make sure to exit
         }
-        
+
         // Get application info again to refresh changed properties of application
         try {
             mPackageInfo = mPm.getPackageInfo(mAppEntry.info.packageName,
@@ -424,10 +424,10 @@ public class InstalledAppDetails extends Activity
             Log.e(TAG, "Exception when retrieving package:" + mAppEntry.info.packageName, e);
             return false; // onCreate must have failed, make sure to exit
         }
-        
+
         // Get list of preferred activities
         List<ComponentName> prefActList = new ArrayList<ComponentName>();
-        
+
         // Intent list cannot be null. so pass empty list
         List<IntentFilter> intentList = new ArrayList<IntentFilter>();
         mPm.getPreferredActivities(intentList, prefActList, packageName);
@@ -467,7 +467,7 @@ public class InstalledAppDetails extends Activity
         } else {
             permsView.setVisibility(View.GONE);
         }
-        
+
         checkForceStop();
         setAppLabelAndIcon(mPackageInfo);
         refreshButtons();
@@ -480,7 +480,7 @@ public class InstalledAppDetails extends Activity
                 Settings.Secure.ENABLE_PERMISSIONS_MANAGEMENT,
                 getResources().getBoolean(com.android.internal.R.bool.config_enablePermissionsManagement) ? 1 : 0) == 1;
     }
-    
+
     private void setIntentAndFinish(boolean finish, boolean appChanged) {
         if(localLOGV) Log.i(TAG, "appChanged="+appChanged);
         Intent intent = new Intent();
@@ -490,7 +490,7 @@ public class InstalledAppDetails extends Activity
             finish();
         }
     }
-    
+
     private void refreshSizeInfo() {
         if (mAppEntry.size == ApplicationsState.SIZE_INVALID
                 || mAppEntry.size == ApplicationsState.SIZE_UNKNOWN) {
@@ -503,7 +503,7 @@ public class InstalledAppDetails extends Activity
             }
             mClearDataButton.setEnabled(false);
             mClearCacheButton.setEnabled(false);
-            
+
         } else {
             mHaveSizes = true;
             if (mLastCodeSize != mAppEntry.codeSize) {
@@ -522,7 +522,6 @@ public class InstalledAppDetails extends Activity
                 mLastTotalSize = mAppEntry.size;
                 mTotalSize.setText(getSizeStr(mAppEntry.size));
             }
-            
             if (mAppEntry.dataSize <= 0 || !mCanClearData) {
                 mClearDataButton.setEnabled(false);
             } else {
@@ -537,7 +536,7 @@ public class InstalledAppDetails extends Activity
             }
         }
     }
-    
+
     /*
      * Private method to handle clear message notification from observer when
      * the async operation from PackageManager is complete
@@ -587,7 +586,7 @@ public class InstalledAppDetails extends Activity
      * Private method to initiate clearing user data when the user clicks the clear data 
      * button for a system package
      */
-    private  void initiateClearUserData() {
+    private void initiateClearUserData() {
         mClearDataButton.setEnabled(false);
         // Invoke uninstall or clear user data based on sysPackage
         String packageName = mAppEntry.info.packageName;
@@ -605,12 +604,12 @@ public class InstalledAppDetails extends Activity
             mClearDataButton.setText(R.string.recompute_size);
         }
     }
-    
+
     private void showDialogInner(int id) {
         //removeDialog(id);
         showDialog(id);
     }
-    
+
     @Override
     public Dialog onCreateDialog(int id, Bundle args) {
         switch (id) {
@@ -718,7 +717,7 @@ public class InstalledAppDetails extends Activity
             mForceStopButton.setOnClickListener(InstalledAppDetails.this);
         }
     };
-    
+
     private void checkForceStop() {
         Intent intent = new Intent(Intent.ACTION_QUERY_PACKAGE_RESTART,
                 Uri.fromParts("package", mAppEntry.info.packageName, null));
@@ -727,7 +726,7 @@ public class InstalledAppDetails extends Activity
         sendOrderedBroadcast(intent, null, mCheckKillProcessesReceiver, null,
                 Activity.RESULT_CANCELED, null, null);
     }
-    
+
     static class DisableChanger extends AsyncTask<Object, Object, Object> {
         final PackageManager mPm;
         final WeakReference<InstalledAppDetails> mActivity;
@@ -804,4 +803,3 @@ public class InstalledAppDetails extends Activity
         }
     }
 }
-

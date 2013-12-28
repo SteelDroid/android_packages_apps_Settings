@@ -54,7 +54,6 @@ Preference.OnPreferenceClickListener {
 
     private WifiManager mWifiManager;
 
-
     //============================
     // Activity lifecycle
     //============================
@@ -66,7 +65,6 @@ Preference.OnPreferenceClickListener {
         onCreatePreferences();
         mWifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
     }
-
 
     private void onCreatePreferences() {
         addPreferencesFromResource(R.layout.wifi_api_test);

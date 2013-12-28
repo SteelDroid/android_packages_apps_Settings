@@ -37,12 +37,12 @@ public class BrightnessPreference extends SeekBarPreference implements
 
     private SeekBar mSeekBar;
     private CheckBox mCheckBox;
-    
+
     private int mOldBrightness;
     private int mOldAutomatic;
 
     private boolean mAutomaticAvailable;
-    
+
     // Backlight range is from 0 - 255. Need to make sure that user
     // doesn't set the backlight to 0 and get stuck
     private static final int MINIMUM_BACKLIGHT = android.os.Power.BRIGHTNESS_DIM + 10;
@@ -112,7 +112,7 @@ public class BrightnessPreference extends SeekBarPreference implements
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
-        
+
         if (positiveResult) {
             Settings.System.putInt(getContext().getContentResolver(), 
                     Settings.System.SCREEN_BRIGHTNESS,
@@ -126,7 +126,7 @@ public class BrightnessPreference extends SeekBarPreference implements
             }
         }
     }
-    
+
     private void setBrightness(int brightness) {
         try {
             IPowerManager power = IPowerManager.Stub.asInterface(
@@ -136,7 +136,7 @@ public class BrightnessPreference extends SeekBarPreference implements
             }
         } catch (RemoteException doe) {
             
-        }        
+        }
     }
 
     private void setMode(int mode) {
@@ -149,4 +149,3 @@ public class BrightnessPreference extends SeekBarPreference implements
                 Settings.System.SCREEN_BRIGHTNESS_MODE, mode);
     }
 }
-

@@ -16,34 +16,34 @@ public class GraphableButton extends Button {
         sPaint[0] = new Paint();
         sPaint[0].setStyle(Paint.Style.FILL);
         sPaint[0].setColor(0xFF0080FF);
-        
+
         sPaint[1] = new Paint();
         sPaint[1].setStyle(Paint.Style.FILL);
         sPaint[1].setColor(0xFFFF6060);
     }
-    
+
     double[] mValues;
-    
+
     public GraphableButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-    
+
     public void setValues(double[] values, double maxValue) {
         mValues = values.clone();
         for (int i = 0; i < values.length; i++) {
             mValues[i] /= maxValue;
         }
     }
-    
+
     @Override
     public void onDraw(Canvas canvas) {
         Log.i(TAG, "onDraw: w = " + getWidth() + ", h = " + getHeight());
-        
+
         int xmin = getPaddingLeft();
         int xmax = getWidth() - getPaddingRight();
         int ymin = getPaddingTop();
         int ymax = getHeight() - getPaddingBottom();
-        
+
         int startx = xmin;
         for (int i = 0; i < mValues.length; i++) {
             int endx = xmin + (int) (mValues[i] * (xmax - xmin));

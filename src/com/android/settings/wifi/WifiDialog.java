@@ -268,7 +268,7 @@ class WifiDialog extends AlertDialog implements View.OnClickListener,
 
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
     }
-    
+
     public void afterTextChanged(Editable editable) {
         validate();
     }

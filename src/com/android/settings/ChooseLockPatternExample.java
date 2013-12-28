@@ -94,4 +94,3 @@ public class ChooseLockPatternExample extends Activity implements View.OnClickLi
         if (animation != null && animation.isRunning()) animation.stop();
     }
 }
-

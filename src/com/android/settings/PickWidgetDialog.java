@@ -57,8 +57,6 @@ public class PickWidgetDialog {
         }
     }
 
-
-
     public PickWidgetDialog(AppWidgetPickActivity owner) {
         fOwner = owner;
     }
@@ -87,7 +85,7 @@ public class PickWidgetDialog {
             }
 
             ab.setOnCancelListener(new CancelListener(subItem == null));
-            fDialog =  ab.create();
+            fDialog = ab.create();
             fDialog.show();
         }
         else

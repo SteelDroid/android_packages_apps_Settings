@@ -1,4 +1,3 @@
-
 package com.android.settings.widget.buttons;
 
 import com.android.settings.widget.SettingsAppWidgetProvider;

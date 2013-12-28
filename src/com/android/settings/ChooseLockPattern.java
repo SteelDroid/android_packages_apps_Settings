@@ -148,7 +148,6 @@ public class ChooseLockPattern extends Activity implements View.OnClickListener{
             }
      };
 
-
     /**
      * The states of the left footer button.
      */
@@ -158,7 +157,6 @@ public class ChooseLockPattern extends Activity implements View.OnClickListener{
         Retry(R.string.lockpattern_retry_button_text, true),
         RetryDisabled(R.string.lockpattern_retry_button_text, false),
         Gone(ID_EMPTY_MESSAGE, false);
-
 
         /**
          * @param text The displayed text for this mode.
@@ -226,7 +224,6 @@ public class ChooseLockPattern extends Activity implements View.OnClickListener{
         ChoiceConfirmed(
                 R.string.lockpattern_pattern_confirmed_header,
                 LeftButtonMode.Cancel, RightButtonMode.Confirm, ID_EMPTY_MESSAGE, false);
-
 
         /**
          * @param headerMessage The message displayed at the top.
@@ -396,7 +393,6 @@ public class ChooseLockPattern extends Activity implements View.OnClickListener{
         }
     }
 
-
     /**
      * Updates the messages and buttons appropriate to what stage the user
      * is at in choosing a view.  This doesn't handle clearing out the pattern;
@@ -469,7 +465,6 @@ public class ChooseLockPattern extends Activity implements View.OnClickListener{
                 break;
         }
     }
-
 
     // clear the wrong pattern unless they have started a new one
     // already

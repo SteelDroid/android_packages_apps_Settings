@@ -12,7 +12,7 @@ public class CreateShortcut extends LauncherActivity {
         targetIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         return targetIntent;
     }
-    
+
     @Override protected void onListItemClick(ListView l, View v, int position, long id) {
         Intent shortcutIntent = intentForPosition(position);
         shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);

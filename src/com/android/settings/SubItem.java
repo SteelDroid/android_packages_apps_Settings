@@ -34,6 +34,7 @@ public class SubItem {
         public void setExtra(Bundle aValue) {
             fExtra = aValue;
         }
+
         public Bundle getExtra() {
             return fExtra;
         }
@@ -41,6 +42,7 @@ public class SubItem {
         public void setProvider(ComponentName aValue) {
             fProvider = aValue;
         }
+
         public ComponentName getProvider() {
             return fProvider;
         }

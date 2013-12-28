@@ -81,7 +81,6 @@ public class AppWidgetPickActivity extends Activity {
         return fItems;
     }
 
-
     public void finishOk(SubItem item) {
         int result;
         if (item.getExtra() != null) {

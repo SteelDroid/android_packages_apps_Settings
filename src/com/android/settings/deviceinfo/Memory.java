@@ -174,11 +174,11 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
         }
 
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
-        
+
         IntentFilter intentFilter = new IntentFilter(Intent.ACTION_MEDIA_SCANNER_STARTED);
         intentFilter.addAction(Intent.ACTION_MEDIA_SCANNER_FINISHED);
         intentFilter.addDataScheme("file");
@@ -197,7 +197,7 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
             updateMemoryStatus();
         }
     };
-    
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -223,7 +223,7 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
        }
        return mMountService;
     }
-    
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         String clickedItem = preference.getKey();
@@ -250,10 +250,10 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
             startActivity(intent);
             return true;
         }
-        
+
         return false;
     }
-     
+
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -366,7 +366,7 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
             status = Environment.MEDIA_MOUNTED;
             readOnly = mRes.getString(R.string.read_only);
         }
- 
+
         if (status.equals(Environment.MEDIA_MOUNTED)) {
             if (!Environment.isExternalStorageRemovable()) {
                 // This device has built-in storage that is not removable.
@@ -382,7 +382,7 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
                 long blockSize = stat.getBlockSize();
                 long totalBlocks = stat.getBlockCount();
                 long availableBlocks = stat.getAvailableBlocks();
-                
+
                 size.setSummary(formatSize(totalBlocks * blockSize));
                 avail.setSummary(formatSize(availableBlocks * blockSize) + readOnly);
 
@@ -395,11 +395,10 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
                 // ACTION_MEDIA_REMOVED Intent yet.
                 status = Environment.MEDIA_REMOVED;
             }
-            
+
         } else {
             size.setSummary(R.string.sd_unavailable);
             avail.setSummary(R.string.sd_unavailable);
-
 
             if (!Environment.isExternalStorageRemovable()) {
                 if (status.equals(Environment.MEDIA_UNMOUNTED)) {
@@ -478,7 +477,7 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
         mIntSize.setSummary(formatSize(totalBlocks * blockSize));
         mIntAvail.setSummary(formatSize(availableBlocks * blockSize));
     }
-    
+
     private String formatSize(long size) {
         return Formatter.formatFileSize(this, size);
     }
@@ -486,5 +485,5 @@ public class Memory extends PreferenceActivity implements OnCancelListener {
     public void onCancel(DialogInterface dialog) {
         finish();
     }
-    
+
 }

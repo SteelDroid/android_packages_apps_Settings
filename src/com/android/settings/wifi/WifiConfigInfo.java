@@ -25,7 +25,6 @@ import java.util.List;
 
 import com.android.settings.R;
 
-
 /**
  * Configuration details saved by the user on the WifiSettings screen
  */
@@ -53,7 +52,7 @@ public class WifiConfigInfo extends Activity {
     protected void onResume() {
         super.onResume();
         final List<WifiConfiguration> wifiConfigs = mWifiManager.getConfiguredNetworks();
-        StringBuffer configList  = new StringBuffer();
+        StringBuffer configList = new StringBuffer();
         for (int i = wifiConfigs.size() - 1; i >= 0; i--) {
             configList.append(wifiConfigs.get(i));
         }

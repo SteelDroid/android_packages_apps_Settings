@@ -34,7 +34,7 @@ public class Settings extends PreferenceActivity {
     private static final String KEY_SYNC_SETTINGS = "sync_settings";
     private static final String KEY_DOCK_SETTINGS = "dock_settings";
     private static final String KEY_DEVICE_SETTINGS = "device_settings";
-    
+
     private static final String KEY_LAUNCHER = "launcher_settings";
 
     private Preference mLauncherSettings;
