@@ -3153,4 +3153,6 @@ found in the list of installed applications.</string>
     <string name="increasing_ring_interval_3seconds">3 seconds</string>
     <string name="increasing_ring_interval_5seconds">5 seconds</string>
     <string name="increasing_ring_interval_10seconds">10 seconds</string>
+
+    <string name="steel_settings_title">Steel Box</string>
 </resources>
