@@ -1333,7 +1333,6 @@
     <string name="toggleFlashlightDescription">开启/禁用手电筒</string>
     <string name="toggleLockScreenDescription">开启/禁用锁屏</string>
 
-
     <string name="widgetSettings">小工具实例设置</string>
     <string name="wifiSettings">Wifi 事件设置</string>
     <string name="dataSettings">数据事件设置</string>
@@ -1383,16 +1382,11 @@
 
     <string name="ok">确定</string>
 
-
     <!-- Widget Picker -->
     <string name="widget_count">(%d 个小工具)</string>
 
     <string name="cm_settings_title">CM 设置</string>
     <string name="device_settings_title">设备设置</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"4G 设置"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"设置和管理 4G 网络与调制解调器"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"4G MAC 地址"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"其他系统更新"</string>
 
     <!-- Summary for PreferenceScreen to launch picker for security method when there is none -->
     <string name="lockfinger_unlock_set_unlock_launch_picker_summary">使用图案、手指、PIN 或密码锁定屏幕</string>

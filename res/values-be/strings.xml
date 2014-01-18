@@ -1286,7 +1286,6 @@
     <string name="toggleAirplaneDescription">Перайсьці ў стан «у самалёце» або вярнуцца</string>
     <string name="toggleFlashlightDescription">Улучыць або вылучыць «ліхтарык»</string>
     <string name="toggleLockScreenDescription">Замыкаць экран ці не замыкаць</string>
-    <string name="toggleWimaxDescription">Улучыць або вылучыць WiMAX</string>
     <string name="widgetSettings">Налады віджэтаў</string>
     <string name="wifiSettings">Налады падзеяў Wi-Fi</string>
     <string name="dataSettings">Налады падзеяў сеціва</string>
@@ -1331,10 +1330,6 @@
     <string name="widget_count">(віджэтаў: %d)</string>
     <string name="cm_settings_title">Налады CyanogenMod</string>
     <string name="device_settings_title">Налады прылады</string>
-    <string name="wimax_settings">Налады 4G</string>
-    <string name="wimax_settings_summary">Наставіць і кіраваць сеткамі 4G і злучарам</string>
-    <string name="status_wimax_mac_address">Адрас MAC 4G</string>
-    <string name="additional_system_update_settings_list_item_title">Дадатковыя абнаўленьні сыстэмы</string>
     <string name="lockfinger_enrollment_unknown_error_toast">Невядомая памылка.\nFailure to connect is likely.</string>
     <string name="lockfinger_lockout_countdown_footer">Паспрабуйце праз %d сэк.</string>
 </resources>

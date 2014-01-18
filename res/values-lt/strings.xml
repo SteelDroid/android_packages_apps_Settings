@@ -1169,8 +1169,4 @@
     <string name="sound_category_calls_title" msgid="3688531959256239012">"Gaunami skambučiai"</string>
     <string name="sound_category_notification_title" msgid="3502115998790286943">"Įspėjimai"</string>
     <string name="sound_category_feedback_title" msgid="4399742321363475393">"Atsiliepimai"</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"4G nustatymai"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"Nustatyti ir valdyti 4G tinklą ir modemą"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"4G MAC adresas"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Papildomi sistemos naujiniai"</string>
 </resources>

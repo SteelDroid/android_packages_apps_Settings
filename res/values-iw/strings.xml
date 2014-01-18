@@ -1288,7 +1288,6 @@
   <string name="toggleAirplane">טיסה</string>
   <string name="toggleFlashlight">פנס</string>
   <string name="toggleLockScreen">נעילת מסך</string>
-  <string name="toggleWimax">WiMAX</string>
   <string name="toggleWifiDescription">הפעל/בטל Wifi</string>
   <string name="toggleWifiApDescription">הפעל/בטל נקודה גישה של Wi-Fi</string>
   <string name="toggleBluetoothDescription">הפעל/בטל Bluetooth</string>
@@ -1303,7 +1302,6 @@
   <string name="toggleAirplaneDescription">הפעל/בטל מצב טיסה</string>
   <string name="toggleFlashlightDescription">הפעל/בטל מצב פנס</string>
   <string name="toggleLockScreenDescription">הפעל/בטל נעילת מסך</string>
-  <string name="toggleWimaxDescription">הפעל/בטל WiMAX</string>
   <string name="widgetSettings">הגדרות הופעת Widget </string>
   <string name="wifiSettings">הגדרות אירועי Wifi</string>
   <string name="dataSettings">הגדרות אירועי נתונים</string>
@@ -1348,8 +1346,4 @@
   <string name="ok">אישור</string>
   <string name="widget_count">(%d widgets)</string>
   <string name="cm_settings_title">הגדרות CyanogenMod</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"הגדרות ‎4G"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"הגדר ונהל רשת ומודם של ‎4G"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"כתובת ‎4G MAC"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"עדכוני מערכת נוספים"</string>
 </resources>

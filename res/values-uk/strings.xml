@@ -1297,7 +1297,6 @@
     <string name="toggleAirplane">Режим \u201CУ літаку\u201D</string>
     <string name="toggleFlashlight">Ліхтарик</string>
     <string name="toggleLockScreen">Блокування екрана</string>
-    <string name="toggleWimax">WiMAX</string>
     <string name="toggleWifiDescription">Увімкнення/вимкнення Wi-Fi</string>
     <string name="toggleWifiApDescription">Увімкнення/вимкнення точки доступу Wi-Fi</string>
     <string name="toggleBluetoothDescription">Увімкнення/вимкнення Bluetooth</string>
@@ -1312,7 +1311,6 @@
     <string name="toggleAirplaneDescription">Увімкнути/вимкнути режим \u201CУ літаку\u201D</string>
     <string name="toggleFlashlightDescription">Увімкнення/вимкнення ліхтарика</string>
     <string name="toggleLockScreenDescription">Увімкнення/вимкнення блокування екрана</string>
-    <string name="toggleWimaxDescription">Увімкнення/вимкнення WiMAX</string>
     <string name="widgetSettings">Налаштування екземпляра віджета</string>
     <string name="wifiSettings">Налаштування подій від Wi-Fi</string>
     <string name="dataSettings">Налаштування подій від даних</string>
@@ -1357,8 +1355,4 @@
     <string name="ok">OK</string>
     <string name="widget_count">(%d віджетів)</string>
     <string name="cm_settings_title">CyanogenMod</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"Налаштування 4G"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"Налаштувати 4G мережу та модем і керувати ними"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"4G MAC-адреса"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Додаткові оновлення системи"</string>
 </resources>

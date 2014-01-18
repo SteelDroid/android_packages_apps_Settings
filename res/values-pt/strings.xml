@@ -1352,17 +1352,12 @@
   <string name="battery_history_wifi_running">Tempo com Wi-Fi funcionando:</string>
   <string name="battery_history_bluetooth_on">Tempo com Bluetooth ligado:</string>
   <string name="additional_memory">Armazenamento adicional</string>
-  <string name="wimax_settings" msgid="1574837328738396794">"Configurações de 4G"</string>
-  <string name="wimax_settings_summary" msgid="3207355006084135453">"Configure e gerencie a rede e o modem 4G"</string>
-  <string name="status_wimax_mac_address" msgid="8390791848661413416">"Endereço MAC 4G"</string>
-  <string name="toggleWimaxDescription">Habilitar/Desabilitar WiMAX</string>
   <string name="profile_volumeoverrides_title">Substituir o volume</string>
   <string name="profile_volumeoverrides_summary">Toque para definir o volume</string>
   <string name="power_sounds_enable_title">Som de nível baixo de bateria</string>
   <string name="power_sounds_enable_summary">Tocar som com o alerta de bateria baixa</string>
   <string name="settings_cmlicense_activity_title">Licenças CyanogenMod</string>
   <string name="bluetooth_profile_network">Rede</string>
-  <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Atualizações adicionais do sistema"</string>
   <string name="bluetooth_connection_notif_message">Toque para conectar a \u0022%1$s\u0022</string>
   <string name="bluetooth_connection_permission_request">Requisição de conexão bluetooth</string>
   <string name="bluetooth_connection_dialog_text">Você deseja conectar a \u0022%1$s\u0022?</string>

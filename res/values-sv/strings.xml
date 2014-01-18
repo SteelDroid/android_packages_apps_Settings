@@ -1307,7 +1307,6 @@
     <string name="toggleAirplane">Flygplan</string>
     <string name="toggleFlashlight">Ficklampa</string>
     <string name="toggleLockScreen">Låsskärm</string>
-    <string name="toggleWimax">WiMAX</string>
     <string name="toggleWifiDescription">Aktivera/inaktivera Wifi</string>
     <string name="toggleWifiApDescription">Aktivera/inaktivera den portabla Wi-Fi hotspoten</string>
     <string name="toggleBluetoothDescription">Aktivera/inaktivera Bluetooth</string>
@@ -1322,7 +1321,6 @@
     <string name="toggleAirplaneDescription">Aktivera/inaktivera flygplansläge</string>
     <string name="toggleFlashlightDescription">Aktivera/inaktivera ficklampsläge</string>
     <string name="toggleLockScreenDescription">Aktivera/inaktivera låsskärm</string>
-    <string name="toggleWimaxDescription">Aktivera/inaktivera WiMAX</string>
     <string name="widgetSettings">Inställningar för widget-instans</string>
     <string name="wifiSettings">Inställningar för Wifi-händelser</string>
     <string name="dataSettings">Inställningar för datahändelser</string>
@@ -1368,8 +1366,4 @@
     <string name="widget_count">(%d widgetar)</string>
     <string name="cm_settings_title">CyanogenMod-inställningar</string>
     <string name="device_settings_title">Enhetsinställningar</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"4G-inställningar"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"Konfigurera och hantera 4G-nätverk och modem"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"4G Mac-adress"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Ytterligare systemuppdateringar"</string>
 </resources>

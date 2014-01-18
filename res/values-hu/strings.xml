@@ -1316,7 +1316,6 @@
     <string name="toggleAirplane">Repülőgép</string>
     <string name="toggleFlashlight">Vaku</string>
     <string name="toggleLockScreen">Képernyőzár</string>
-    <string name="toggleWimax">WiMAX</string>
     <string name="toggleWifiDescription">Wi-Fi bekapcsolása/kikapcsolása</string>
     <string name="toggleWifiApDescription">Wi-Fi hotspot bekapcsolása/kikapcsolása</string>
     <string name="toggleBluetoothDescription">Bluetooth bekapcsolása/kikapcsolása</string>
@@ -1331,7 +1330,6 @@
     <string name="toggleAirplaneDescription">Repülő üzemmód be/ki</string>
     <string name="toggleFlashlightDescription">Fény be/ki</string>
     <string name="toggleLockScreenDescription">Képernyőzár engedélyezése be/ki</string>
-    <string name="toggleWimaxDescription">WiMAX bekapcsolása/kikapcsolása</string>
     <string name="widgetSettings">Widget kérelem beállítások</string>
     <string name="wifiSettings">Wi-Fi események beállítása</string>
     <string name="dataSettings">Adat események beállítása</string>
@@ -1377,10 +1375,7 @@
     <string name="widget_count">(%d widgetek)</string>
     <string name="cm_settings_title">CyanogenMod beállítások</string>
     <string name="device_settings_title">Készülék beállítások</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"4G beállítások"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"4G hálózat és modem beállítása és kezelése"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"4G MAC-cím"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"További rendszerfrissítések"</string>
+
     <string name="increasing_ring_title">Emelkedő csengőhang</string>
 
     <string name="checkbox_increasing_ring">Engedélyez</string>

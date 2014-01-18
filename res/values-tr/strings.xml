@@ -1330,7 +1330,6 @@
     <string name="toggleAirplane">Uçak Modu</string>
     <string name="toggleFlashlight">El Feneri</string>
     <string name="toggleLockScreen">Kilit Ekranı</string>
-    <string name="toggleWimax">WiMAX</string>
     <string name="toggleWifiDescription">Wi-Fi etkinleştir/kapat</string>
     <string name="toggleWifiApDescription">Wi-Fi paylaşımını etkinleştir/kapat</string>
     <string name="toggleBluetoothDescription">Bluetooth etkinleştir/kapat</string>
@@ -1345,7 +1344,6 @@
     <string name="toggleAirplaneDescription">Uçak modunu etkinleştir/kapat</string>
     <string name="toggleFlashlightDescription">El feneri modunu etkinleştir/kapat</string>
     <string name="toggleLockScreenDescription">Kilit ekranını etkinleştir/kapat</string>
-    <string name="toggleWimaxDescription">WiMAX etkinleştir/kapat</string>
     <string name="widgetSettings">Widget Ayarları</string>
     <string name="wifiSettings">Wi-Fi Ayarları</string>
     <string name="dataSettings">Mobil Veri Ayarları</string>
@@ -1390,11 +1388,7 @@
     <string name="ok">Tamam</string>
     <string name="widget_count">(%d widget)</string>
     <string name="cm_settings_title">CyanogenMod ayarları</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"4G ayarları"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"4G ağı ve modemi kurma ve yönetme"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"4G MAC adresi"</string>
     <string name="device_settings_title">Cihaz ayarları</string>
-    <string name="additional_system_update_settings_list_item_title">Ek sistem güncellemeleri</string>
     <string name="finger_enrollment">Parmak izi kaydı</string>
     <string name="start_finger_enrollment_summary">Kilit ekranı ve diğer uygulamalar ile kullanmanız için parmak izinizi kaydeder</string>
     <string name="lockfinger_unlock_set_unlock_launch_picker_summary">Şekil, parmak izi, PIN veya şifre ile ekranı kilitle</string>

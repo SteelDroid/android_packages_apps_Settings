@@ -2913,7 +2913,6 @@
     <string name="toggleAirplane">飛航模式</string>
     <string name="toggleFlashlight">手電筒</string>
     <string name="toggleLockScreen">鎖定螢幕</string>
-    <string name="toggleWimax">WiMAX</string>
 
     <string name="toggleWifiDescription">開啟／關閉 Wi-Fi</string>
     <string name="toggleWifiApDescription">啟用／停用可攜式 Wi-Fi 無線基地台</string>
@@ -2929,7 +2928,6 @@
     <string name="toggleAirplaneDescription">啟用／停用飛航模式</string>
     <string name="toggleFlashlightDescription">開啟／關閉 LED 手電筒</string>
     <string name="toggleLockScreenDescription">啟用／停用鎖定螢幕</string>
-    <string name="toggleWimaxDescription">開啟／關閉 WiMAX</string>
 
     <string name="widgetSettings">小工具設定</string>
     <string name="wifiSettings">Wi-Fi 事件設定</string>
@@ -2980,21 +2978,11 @@
 
     <string name="ok">確定</string>
 
-
     <!-- Widget Picker -->
     <string name="widget_count">（%d 個小工具）</string>
 
     <string name="cm_settings_title">CyanogenMod 設定</string>
     <string name="device_settings_title">裝置設定</string>
-
-    <string name="wimax_settings" msgid="1574837328738396794">"4G 設定"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"設定與管理 4G 網路及數據機"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"4G MAC 位址"</string>
-
-    <!-- A menu item in "About phone" that allows the user to update the phone with settings
-    from their cell phone carrier. The use of the string is similar to the string
-    "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"其他系統更新"</string>
 
     <!-- Summary for PreferenceScreen to launch picker for security method when there is none -->
     <string name="lockfinger_unlock_set_unlock_launch_picker_summary">使用圖樣、指紋、PIN 或密碼來鎖定螢幕</string>

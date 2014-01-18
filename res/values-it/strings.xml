@@ -1391,7 +1391,6 @@
     <string name="toggleAirplane">Interruttore Mod. Aereo</string>
     <string name="toggleFlashlight">Interruttore Torcia</string>
     <string name="toggleLockScreen">Interruttore Lock Screen</string>
-    <string name="toggleWimax">WiMAX</string>
 
     <string name="toggleWifiDescription">Attiva/disattiva Wi-Fi</string>
     <string name="toggleWifiApDescription">Attiva/disattiva l\'hotspot Wi-Fi portatile</string>
@@ -1407,7 +1406,6 @@
     <string name="toggleAirplaneDescription">Attiva/disattiva modalità aereo</string>
     <string name="toggleFlashlightDescription">Attiva/disattiva Torcia</string>
     <string name="toggleLockScreenDescription">Attiva/disattiva lock screen</string>
-    <string name="toggleWimaxDescription">Attiva/disattiva WiMAX</string>
 
     <string name="widgetSettings">Impostazioni Widget</string>
     <string name="wifiSettings">Impostazioni Wi-Fi</string>
@@ -1463,8 +1461,4 @@
 
     <string name="cm_settings_title">CyanogenMod</string>
     <string name="device_settings_title">Impostazioni dispositivo</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"Impostazioni 4G"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"Imposta e gestisci rete e modem 4G"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"Indirizzo MAC 4G"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Aggiornamenti di sistema aggiuntivi"</string>
 </resources>

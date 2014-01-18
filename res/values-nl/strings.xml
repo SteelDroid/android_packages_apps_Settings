@@ -1277,7 +1277,6 @@
     <string name="toggleAirplane">Vliegtuigmodus</string>
     <string name="toggleFlashlight">LED</string>
     <string name="toggleLockScreen">Vergrendelscherm</string>
-    <string name="toggleWimax">WiMAX</string>
     <string name="toggleWifiDescription">Wi-Fi aan/uit</string>
     <string name="toggleWifiApDescription">Draagbaar Wi-Fi-hotspot aan/uit</string>
     <string name="toggleBluetoothDescription">Bluetooth aan/uit</string>
@@ -1292,7 +1291,6 @@
     <string name="toggleAirplaneDescription">Vliegtuigmodus aan/uit</string>
     <string name="toggleFlashlightDescription">LED aan/uit</string>
     <string name="toggleLockScreenDescription">Vergrendelscherm aan/uit</string>
-    <string name="toggleWimaxDescription">WiMAX aan/uit</string>
     <string name="widgetSettings">Widgetinstellingen</string>
     <string name="wifiSettings">Wi-Fi-instellingen</string>
     <string name="dataSettings">Gegevensinstellingen</string>
@@ -1338,10 +1336,6 @@
     <string name="widget_count">(%d widgets)</string>
     <string name="cm_settings_title">CyanogenMod</string>
     <string name="device_settings_title">Apparaatinstellingen</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"4G-instellingen"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"4G-netwerk en -modem instellen en beheren"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"MAC-adres 4G"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Aanvullende systeemupdates"</string>
     <string name ="finger_enrollment">Vingerregistratie</string>
     <string name ="start_finger_enrollment_summary">Registreert vingerafdruk voor ontgrendelen en gebruik bij andere applicaties</string>
     <string name="lockfinger_unlock_set_unlock_launch_picker_summary">Scherm vergrendelen met een patroon, vinger, PIN of wachtwoord</string>

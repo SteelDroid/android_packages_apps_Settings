@@ -1169,8 +1169,4 @@
     <string name="sound_category_calls_title" msgid="3688531959256239012">"สายโทรเข้า"</string>
     <string name="sound_category_notification_title" msgid="3502115998790286943">"การแจ้งเตือน"</string>
     <string name="sound_category_feedback_title" msgid="4399742321363475393">"คำติชม"</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"การตั้งค่า 4G"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"ตั้งค่าและจัดการเครือข่าย 4G และโมเด็ม"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"ที่อยู่ MAC ใน 4G"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"การอัปเดตระบบอื่นๆ"</string>
 </resources>

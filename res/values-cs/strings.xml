@@ -1472,7 +1472,6 @@
   <string name="toggleAirplaneDescription">Zapnout/vypnout režim v letadle</string>
   <string name="toggleFlashlightDescription">Zapnout/vypnout baterku</string>
   <string name="toggleLockScreenDescription">Zapnout/vypnout uzamčení obrazovky</string>
-  <string name="toggleWimaxDescription">Zapnout/vypnout WiMAX</string>
 
   <string name="widgetSettings">Nastavení widgetu</string>
   <string name="wifiSettings">Nastavení událostí WiFi</string>
@@ -1525,11 +1524,6 @@
   <string name="widget_count">(%d widgety)</string>
   <string name="cm_settings_title">CyanogenMod</string>
   <string name="device_settings_title">Nastavení zařízení</string>
-
-  <string name="wimax_settings" msgid="1574837328738396794">"Nastavení sítě 4G"</string>
-  <string name="wimax_settings_summary" msgid="3207355006084135453">"Nastavení a správa sítě 4G a modemu"</string>
-  <string name="status_wimax_mac_address" msgid="8390791848661413416">"Adresa MAC sítě 4G"</string>
-  <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Další aktualizace systému"</string>
 
   <string name ="finger_enrollment">Registrace otisku prstu</string>
   <string name ="start_finger_enrollment_summary">Provede registraci otisku prstu pro použití v zámku obrazovky nebo jiných aplikací</string>

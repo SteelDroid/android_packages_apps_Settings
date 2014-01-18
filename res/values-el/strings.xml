@@ -1161,10 +1161,6 @@
     <string name="sound_category_calls_title" msgid="3688531959256239012">"Εισερχόμενες κλήσεις"</string>
     <string name="sound_category_notification_title" msgid="3502115998790286943">"Ειδοποιήσεις"</string>
     <string name="sound_category_feedback_title" msgid="4399742321363475393">"Σχόλια"</string>
-    <string name="wimax_settings" msgid="1574837328738396794">"Ρυθμίσεις 4G"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"Εγκατάσταση και διαχείριση δικτύου και μόντεμ 4G"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"Διεύθυνση 4G MAC"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Πρόσθετες ενημερώσεις συστήματος"</string>
 
     <!-- Bluetooth settings screen, toggle fast connections (on) -->
     <string name="bluetooth_fast_connect_on">Γρήγορες συνδέσεις bluetooth</string>
@@ -1373,7 +1369,6 @@
     <string name="toggleAirplane">Λειτουργία πτήσης</string>
     <string name="toggleFlashlight">Φακός</string>
     <string name="toggleLockScreen">Οθόνη κλειδώματος</string>
-    <string name="toggleWimax">WiMAX</string>
 
     <string name="toggleWifiDescription">Ενεργ./απενεργ. Wi-Fi</string>
     <string name="toggleWifiApDescription">Ενεργ./απενεργ. φορητού Wi-Fi hotspot</string>
@@ -1389,7 +1384,6 @@
     <string name="toggleAirplaneDescription">Ενεργ./απενεργ. λειτουργίας πτήσης</string>
     <string name="toggleFlashlightDescription">Ενεργ./απενεργ. φακού</string>
     <string name="toggleLockScreenDescription">Ενεργ./απενεργ. οθόνης κλειδώματος</string>
-    <string name="toggleWimaxDescription">Ενεργ./απενεργ. WiMAX</string>
 
     <string name="widgetSettings">Επιλογές widget</string>
     <string name="wifiSettings">Επιλογές Wi-Fi</string>

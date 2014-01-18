@@ -1486,15 +1486,6 @@
     <string name="cm_settings_title">CyanogenMod</string>
     <string name="device_settings_title">Réglages de l\'appareil</string>
 
-    <string name="wimax_settings" msgid="1574837328738396794">"Paramètres 4G"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"Configurer et gérer le réseau et le modem 4G"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"Adresse MAC 4G"</string>
-
-    <!-- A menu item in "About phone" that allows the user to update the phone with settings
-    from their cell phone carrier. The use of the string is similar to the string
-    "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Mises à jour supplémentaires du système"</string>
-
     <!-- Title for connection overrides via profiles -->
     <string name="profile_connectionoverrides_title">Connexions</string>
     <!-- Summary for connection overrides via profiles -->

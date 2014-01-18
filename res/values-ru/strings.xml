@@ -1213,7 +1213,6 @@
     <string name="toggleAirplane">Режим самолёта</string>
     <string name="toggleFlashlight">Фонарь</string>
     <string name="toggleLockScreen">Блокировка экрана</string>
-    <string name="toggleWimax">WiMAX</string>	
     <string name="toggleWifiDescription">Включение/Отключение Wi-Fi</string>
     <string name="toggleWifiApDescription">Включение/Отключение портативной Wi-Fi точки доступа</string>
     <string name="toggleBluetoothDescription">Включение/Отключение Bluetooth</string>
@@ -1228,7 +1227,6 @@
     <string name="toggleAirplaneDescription">Включение/Отключение режима самолёта</string>
     <string name="toggleFlashlightDescription">Включение/Отключение фонарика</string>
     <string name="toggleLockScreenDescription">Включение/Отключение блокировки экрана</string>
-    <string name="toggleWimaxDescription">Включение/Отключение WiMAX</string>
     <string name="widgetSettings">Образец настройки виджета</string>
     <string name="wifiSettings">Настройки Wi-Fi</string>
     <string name="dataSettings">Настройки передачи данных</string>
@@ -1400,11 +1398,6 @@
     <string name="vpn_openvpn_set_keysize_default">По умолчанию</string>
     <string name="vpn_openvpn_set_extra">Дополнительные параметры</string>
     <string name="vpn_openvpn_set_extra_message">Введите дополнительные параметры командной строки</string>
-
-    <string name="wimax_settings" msgid="1574837328738396794">"Настройки 4G"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"Подключение и настройка сети и модема 4G"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"МАС-адрес для 4G"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Дополнительные обновления системы"</string>
 
     <string name="increasing_ring_title">Возрастающая громкость звонка</string>
     <!-- Sound settings screen, the caption of the checkbox for making incoming calls increas in volume -->

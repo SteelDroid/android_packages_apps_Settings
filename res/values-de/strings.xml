@@ -1319,7 +1319,6 @@
     <string name="toggleAirplaneDescription">Flugmodus ein/ausschalten</string>
     <string name="toggleFlashlightDescription">Taschenlampenmodus ein/ausschalten</string>
     <string name="toggleLockScreenDescription">Bildschirmsperre ein/ausschalten</string>
-    <string name="toggleWimaxDescription">WiMAX ein/ausschalten</string>
 
     <string name="widgetSettings">Widget-Einstellungen</string>
     <string name="wifiSettings">WLAN-Einstellungen</string>
@@ -1375,11 +1374,6 @@
 
     <string name="cm_settings_title">CyanogenMod</string>
     <string name="device_settings_title">Geräteeinstellungen</string>
-
-    <string name="wimax_settings" msgid="1574837328738396794">"4G-Einstellungen"</string>
-    <string name="wimax_settings_summary" msgid="3207355006084135453">"4G-Netzwerk einrichten &amp; verwalten"</string>
-    <string name="status_wimax_mac_address" msgid="8390791848661413416">"4G-MAC-Adresse"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"Zusätzliche Systemupdates"</string>
 
     <string name="increasing_ring_title">Ansteigende Lautstärke</string>
     <!-- Sound settings screen, the caption of the checkbox for making incoming calls increas in volume -->
