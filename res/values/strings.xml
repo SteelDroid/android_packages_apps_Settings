@@ -449,7 +449,7 @@
     <string name="sdcard_settings_bad_removal_status" product="default">SD card was removed while still in use!</string>
     <!-- Label for used bytes on the SD card -->
     <string name="sdcard_settings_used_bytes_label">Used bytes:</string>
-    <!-- Message when it is scanning the SD card for new files [CHAR LIMIT=30]  -->
+    <!-- Message when it is scanning the SD card for new files [CHAR LIMIT=30] -->
     <string name="sdcard_settings_scanning_status" product="nosdcard">Scanning USB storage for media\u2026</string>
     <!-- Message when it is scanning the SD card for new files -->
     <string name="sdcard_settings_scanning_status" product="default">Scanning SD card for media\u2026</string>
@@ -518,7 +518,6 @@
     <!-- Main Settings screen settings summary text for the "Wireless controls" setting -->
     <string name="radio_controls_summary">Manage Wi-Fi, Bluetooth, airplane mode, mobile networks, &amp; VPNs</string>
 
-
     <!-- mobile network settings screen, setting check box title -->
     <string name="roaming">Data roaming</string>
     <!-- mobile network settings screen, setting option summary text when check box is selected -->
@@ -580,20 +579,20 @@
     <!-- Unlock Picker Settings --><skip />
 
     <!-- Security Picker --><skip />
-    <!--  Title for security picker to choose the unlock method: None/Pattern/PIN/Password -->
+    <!-- Title for security picker to choose the unlock method: None/Pattern/PIN/Password -->
     <string name="lock_settings_picker_title">Screen unlock security</string>
 
-    <!--  Main Security lock settings --><skip />
-    <!--  Title for PreferenceScreen to launch picker for security method when there is none -->
+    <!-- Main Security lock settings --><skip />
+    <!-- Title for PreferenceScreen to launch picker for security method when there is none -->
     <string name="unlock_set_unlock_launch_picker_title">Set up screen lock</string>
 
-    <!--  Summary for PreferenceScreen to launch picker for security method when there is none -->
+    <!-- Summary for PreferenceScreen to launch picker for security method when there is none -->
     <string name="unlock_set_unlock_launch_picker_summary">Lock screen with a pattern, PIN, or password</string>
 
-    <!--  Title for PreferenceScreen to change security method: None/Pattern/PIN/Password  -->
+    <!-- Title for PreferenceScreen to change security method: None/Pattern/PIN/Password -->
     <string name="unlock_set_unlock_launch_picker_change_title">Change screen lock</string>
 
-    <!--  Summary for PreferenceScreen to changeecurity method: None/Pattern/PIN/Password  -->
+    <!-- Summary for PreferenceScreen to changeecurity method: None/Pattern/PIN/Password -->
     <string name="unlock_set_unlock_launch_picker_change_summary">Change or disable pattern, PIN, or password security</string>
 
 
@@ -607,9 +606,9 @@
     <!-- Summary for preference that guides the user through creating an unlock pattern -->
     <string name="unlock_set_unlock_pattern_summary">Draw pattern to unlock screen</string>
 
-    <!-- Title for preference that guides the user through creating an unlock PIN (Personal Identification Number)  -->
+    <!-- Title for preference that guides the user through creating an unlock PIN (Personal Identification Number) -->
     <string name="unlock_set_unlock_pin_title">PIN</string>
-    <!-- Summary for preference that guides the user through creating an unlock PIN (Personal Identification Number)  -->
+    <!-- Summary for preference that guides the user through creating an unlock PIN (Personal Identification Number) -->
     <string name="unlock_set_unlock_pin_summary">Enter a numeric PIN to unlock screen</string>
 
     <!-- Title for preference that guides the user through creating an unlock password -->
@@ -619,7 +618,6 @@
 
     <!-- Summary for preference that has been disabled by DevicePolicyAdmin -->
     <string name="unlock_set_unlock_disabled_summary">Disabled by remote phone administrator</string>
-
 
     <!-- Title for option to turn of password/pin/pattern unlock. -->
     <string name="unlock_disable_lock_title">Turn off screen lock</string>
@@ -696,7 +694,7 @@
     <!--Wireless controls screen, settings summary for the item to take you to the bluetooth settings screen -->
     <string name="bluetooth_settings_summary">Manage connections, set device name &amp; discoverability</string>
 
-    <!-- Title for the dialog to enter PIN.  -->
+    <!-- Title for the dialog to enter PIN. -->
     <string name="bluetooth_pairing_request">Bluetooth pairing request</string>
     <!-- Title for the bluetooth device info screen. -->
     <string name="bluetooth_device_info">Bluetooth device info</string>
@@ -806,7 +804,6 @@
     <!-- Bluetooth settings.  Connection options screen.  The summary for the HID checkbox preference that describes how checking it will set the HID profile as preferred. -->
     <string name="bluetooth_hid_profile_summary_use_for">Use for hid device</string>
 
-
     <!-- Bluetooth settings.  Dock Setting Title -->
     <string name="bluetooth_dock_settings">Dock Settings</string>
     <!-- Bluetooth settings.  Dock Setting Dialog Title -->
@@ -817,13 +814,6 @@
     <string name="bluetooth_dock_settings_a2dp">For music and media</string>
     <!-- Bluetooth settings.  Dock Setting Dialog - Remember setting and don't ask user again -->
     <string name="bluetooth_dock_settings_remember">Remember settings</string>
-
-    <!-- NFC settings -->
-    <!-- Used in the 1st-level settings screen to turn on NFC -->
-    <string name="nfc_quick_toggle_title">NFC</string>
-    <!-- Used in the 1st-level settings screen as the turn-on summary -->
-    <string name="nfc_quick_toggle_summary">Use Near Field Communication to read and exchange tags</string>
-    <string name="nfc_toggle_error" msgid="8998642457947607263">An error occurred.</string>
 
     <!-- Hostname Settings -->
     <!-- Button when saving a device hostname -->
