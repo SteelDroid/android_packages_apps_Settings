@@ -36,15 +36,15 @@
     <uses-permission android:name="android.permission.CLEAR_APP_USER_DATA" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
-    <uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES"/>
-    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
-    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY"/>
-    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
-    <uses-permission android:name="android.permission.BATTERY_STATS"/>
-    <uses-permission android:name="android.permission.RESET_BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.RESET_BATTERY_STATS" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.MOVE_PACKAGE" />
@@ -166,7 +166,7 @@
             android:permission="android.permission.REPORT_SUPERUSER" />
 
         <receiver
-            android:name=".cyanogenmod.superuser.PackageChangeReceiver" >
+            android:name=".cyanogenmod.superuser.PackageChangeReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <data android:scheme="package" />
@@ -181,7 +181,7 @@
             </intent-filter>
         </receiver>
 
-      <!-- screen color Settings Controls -->
+        <!-- screen color Settings Controls -->
         <activity android:name=".ScreenColorSettings" android:label="@string/screencolor"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="nosensor">
@@ -239,7 +239,6 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/wireless_settings" />
         </activity>
-
 
         <!-- Top-level settings -->
 
@@ -335,7 +334,7 @@
                 android:taskAffinity="com.android.settings"
                 android:parentActivityName="Settings$WifiSettingsActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -346,7 +345,7 @@
                 android:taskAffinity="com.android.settings"
                 android:parentActivityName="Settings$WifiSettingsActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -355,7 +354,7 @@
         <activity android:name=".wifi.WifiAPITest"
                 android:theme="@style/Theme.DialogWhenLarge">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -364,7 +363,7 @@
         <activity android:name=".wifi.WifiStatusTest"
                 android:theme="@style/Theme.DialogWhenLarge">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -508,7 +507,6 @@
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS"
                 android:value="com.android.settings.Settings$WirelessSettingsActivity" />
         </activity>
-
 
         <activity android:name="Settings$VpnSettingsActivity"
                 android:label="@string/vpn_settings_title"
@@ -1208,14 +1206,14 @@
         <!-- Second and third-level settings -->
 
         <!-- Lock screen settings -->
-        <activity android:name="ConfirmLockPattern"/>
+        <activity android:name="ConfirmLockPattern" />
 
         <activity android:name="ConfirmLockPassword"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
+            android:windowSoftInputMode="stateVisible|adjustResize" />
 
         <activity android:name="ChooseLockGeneric"
             android:label="@string/lockpassword_choose_lock_generic_header"
-            android:excludeFromRecents="true" >
+            android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.app.action.SET_NEW_PASSWORD" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -1227,22 +1225,22 @@
             android:excludeFromRecents="true"
         />
 
-        <activity android:name="ChooseLockPatternSize" android:exported="false"/>
+        <activity android:name="ChooseLockPatternSize" android:exported="false" />
 
-        <activity android:name="ChooseLockPattern" android:exported="false"/>
+        <activity android:name="ChooseLockPattern" android:exported="false" />
 
         <activity android:name="ChooseLockPassword" android:exported="false"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
+            android:windowSoftInputMode="stateVisible|adjustResize" />
 
         <activity android:name="ChooseEncryptionPassword" android:exported="false"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
+            android:windowSoftInputMode="stateVisible|adjustResize" />
 
         <!-- Runs in the phone process since it needs access to the Phone object -->
         <activity android:name=".deviceinfo.msim.MSimSubscriptionStatus"
                 android:label="@string/device_status_activity_title"
                 android:theme="@style/Theme.DialogWhenLarge"
                 android:process="com.android.phone">
-        
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -1294,7 +1292,7 @@
         </activity>
 
         <activity android:name=".deviceinfo.MiscFilesHandler"
-                android:theme="@style/Theme.DialogWhenLarge"/>
+                android:theme="@style/Theme.DialogWhenLarge" />
 
         <activity android:name="Settings$ApnEditorActivity"
                 android:label="@string/apn_edit"
@@ -1562,10 +1560,9 @@
                 android:value="com.android.settings.wfd.WifiDisplaySettings" />
         </activity>
 
-
         <!-- Development settings -->
 
-        <!-- DeviceInfo adds the user's requested build to stats upload.  -->
+        <!-- DeviceInfo adds the user's requested build to stats upload. -->
         <receiver android:name=".DeviceInfo$StatsReportReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.STATISTICS_REPORT" />
@@ -1748,7 +1745,7 @@
             android:label="@string/header_add_an_account"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.DialogWhenLarge"
-            android:parentActivityName="Settings"/>
+            android:parentActivityName="Settings" />
 
         <activity android:name=".CryptKeeper"
                   android:immersive="true"
@@ -1767,14 +1764,12 @@
         <activity android:name=".CryptKeeper$FadeToBlack"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/CryptKeeperBlankTheme"
-        />
+            android:theme="@style/CryptKeeperBlankTheme" />
 
         <activity android:name=".CryptKeeperConfirm$Blank"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/CryptKeeperBlankTheme"
-        />
+            android:theme="@style/CryptKeeperBlankTheme" />
 
         <!-- CyanogenMod activities Start -->
         <activity android:name="Settings$QuickSettingsConfigActivity"
@@ -1849,8 +1844,8 @@
         <activity android:name=".profiles.NFCProfile"
                 android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="cm/profile" />
             </intent-filter>
         </activity>
@@ -1862,18 +1857,6 @@
         <activity android:name=".cyanogenmod.PerformanceSettings" />
 
         <activity android:name=".ApnEditor" />
-
-        <activity android:name="Settings$AnonymousStatsActivity"
-                android:label="@string/anonymous_statistics_title"
-                android:configChanges="orientation|keyboardHidden|screenSize"
-                android:clearTaskOnLaunch="true">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.cmstats.AnonymousStats" />
-        </activity>
-
-        <activity android:name=".cyanogenmod.ChangeLog" />
-
-        <activity android:name=".cyanogenmod.ContributorsCloud" />
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
 
@@ -1887,7 +1870,7 @@
 
         <activity android:name=".cyanogenmod.SpamList" />
 
-         <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
+        <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
         <activity android:name="Settings$BlacklistSettingsActivity"
                 android:theme="@style/Theme.DialogWhenLarge"
                 android:uiOptions="splitActionBarWhenNarrow"
@@ -2138,8 +2121,7 @@
             android:name=".cmstats.ReportingService">
         </service>
 
-
-        <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->
+        <!-- Watch for ContactsContract.Profile changes and update the user's photo. -->
         <receiver android:name=".users.ProfileUpdateReceiver">
             <intent-filter>
                 <action android:name="android.provider.Contacts.PROFILE_CHANGED" />
@@ -2163,6 +2145,6 @@
             android:name=".cyanogenmod.LtoService">
         </service>
 
-        <service android:name=".search.SearchPopulator"/>
+        <service android:name=".search.SearchPopulator" />
     </application>
 </manifest>
