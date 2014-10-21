@@ -638,6 +638,21 @@ public class InstalledAppDetails extends Fragment
         ImageView icon = (ImageView) appSnippet.findViewById(R.id.app_icon);
         mState.ensureIcon(mAppEntry);
         icon.setImageDrawable(mAppEntry.icon);
+
+        // Clicking on application icon opens application.
+        final String finalPackageName = pkgInfo.packageName;
+        icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PackageManager pm = v.getContext().getPackageManager();
+                Intent intent = pm.getLaunchIntentForPackage(finalPackageName);
+                if (intent == null)
+                    return;
+
+                v.getContext().startActivity(intent);
+            }
+        });
+
         // Set application name.
         TextView label = (TextView) appSnippet.findViewById(R.id.app_name);
         label.setText(mAppEntry.label);
@@ -671,12 +686,6 @@ public class InstalledAppDetails extends Fragment
     public void onPause() {
         super.onPause();
         mSession.pause();
-    }
-
-    @Override
-        public void onDestroyView() {
-        super.onDestroyView();
-        mSession.release();
     }
 
     @Override

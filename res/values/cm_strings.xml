@@ -313,6 +313,7 @@
     <string name="lockscreen_maximize_widgets_title">Maximize widgets</string>
     <string name="lockscreen_maximize_widgets_summary">Expand widgets when the screen is turned on</string>
     <string name="lockscreen_enable_camera_title">Camera widget</string>
+    <string name="lockscreen_enable_application_widget_title">Appcast widget</string>
 
     <!-- Safe headset volume checkboxes -->
     <string name="safe_headset_volume_title">Safe headset volume</string>
@@ -868,6 +869,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="navigation_bar_menu_locked">Locked</string>
     <string name="navigation_bar_arrow_keys_title">Arrow keys while typing</string>
     <string name="navigation_bar_arrow_keys_summary">Display left and right cursor buttons while typing</string>
+    <string name="navigation_bar_recents_title">Recents long press action</string>
 
     <!-- Navigation ring shortcuts -->
     <string name="navigation_ring_title">Quick launch shortcuts</string>
@@ -1380,8 +1382,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="prompt">Prompt</string>
     <string name="prompt_user">Prompt user</string>
 
+    <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
+    <string name="regulatory_information_dialog_title" translatable="false">@string/regulatory_information</string>
+
     <!-- SAR information -->
-    <string name="sar_info">Maximum SAR</string>
     <string name="maximum_head_level">Head: %1$s W/kg</string>
     <string name="maximum_body_level">Body: %1$s W/kg</string>
 
@@ -1435,11 +1439,5 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <string name="profile_setup_setup_triggers_description">Please select triggers which will activate this profile</string>
     <string name="profile_setup_actions_description">Now configure what happens when the profile is activated</string>
-
-    <!-- Custom Carrier Label -->
-    <string name="notification_carrier_label_title">Carrier label</string>
-    <string name="notification_custom_carrier_label_title">Custom carrier label</string>
-    <string name="notification_custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock.</string>
-    <string name="notification_custom_carrier_label_notset">No custom label set</string>
 
 </resources>
