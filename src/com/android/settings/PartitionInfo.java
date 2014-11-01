@@ -51,18 +51,18 @@ public class PartitionInfo extends PreferenceActivity {
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mSystemPartSize        = (Preference) prefSet.findPreference(SYSTEM_PART_SIZE);
-        mDataPartSize          = (Preference) prefSet.findPreference(DATA_PART_SIZE);
-        mCachePartSize         = (Preference) prefSet.findPreference(CACHE_PART_SIZE);
-        mSDCardPartFATSize     = (Preference) prefSet.findPreference(SDCARDFAT_PART_SIZE);
-        mSDCardPartEXTSize     = (Preference) prefSet.findPreference(SDCARDEXT_PART_SIZE);
+        mSystemPartSize    = (Preference) prefSet.findPreference(SYSTEM_PART_SIZE);
+        mDataPartSize      = (Preference) prefSet.findPreference(DATA_PART_SIZE);
+        mCachePartSize     = (Preference) prefSet.findPreference(CACHE_PART_SIZE);
+        mSDCardPartFATSize = (Preference) prefSet.findPreference(SDCARDFAT_PART_SIZE);
+        mSDCardPartEXTSize = (Preference) prefSet.findPreference(SDCARDEXT_PART_SIZE);
 
         if (fileExists("/dev/block/mmcblk0p2") == true) {
             Log.i(TAG, "sd: ext partition mounted");
             extfsIsMounted = true;
-            } else {
-                Log.i(TAG, "sd: ext partition not mounted");
-            }
+        } else {
+            Log.i(TAG, "sd: ext partition not mounted");
+        }
 
         try {
             mSystemPartSize.setSummary(ObtainFSPartSize    ("/system"));
