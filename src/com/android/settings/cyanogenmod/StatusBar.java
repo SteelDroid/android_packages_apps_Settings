@@ -158,9 +158,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarTraffic) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(resolver,
-            Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
+            Settings.System.putInt(getContentResolver(),
+            Settings.System.STATUS_BAR_TRAFFIC, (Boolean) newValue ? 1 : 0);
+            return true;
         }
         return false;
     }
