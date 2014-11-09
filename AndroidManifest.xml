@@ -107,6 +107,12 @@
             android:requiredForAllUsers="true"
             android:supportsRtl="true">
 
+        <activity android:name=".orbix.ChangeLog" android:label="@string/changelog_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <uses-library android:name="org.cyanogenmod.hardware"
             android:required="false" />
 
