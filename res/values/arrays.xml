@@ -173,7 +173,6 @@
         <item>com.svox.pico</item>
     </string-array>
 
-
     <!-- Wi-Fi settings -->
 
     <!-- Match this with the order of NetworkInfo.DetailedState. --> <skip />
@@ -464,7 +463,7 @@
         <item>silent</item>
         <item>notsilent</item>
     </string-array>
-    
+
 <!-- Profile mode options. -->
     <string-array name="profile_entries">
         <item>On</item>
@@ -503,7 +502,7 @@
         <item>2G/3G Only</item>
         <item>2G/3G Only/3G+2G</item>
     </string-array>
-    
+
     <string-array name="screenTimeoutWidget" translatable="false">
         <item>15s/1m/5m</item>
         <item>30s/2m/5m</item>
@@ -516,7 +515,7 @@
         <item>Sound+Vib/Vib/Silent</item>
         <item>Sound/Vibrate/Silent</item>
     </string-array>
-    
+
     <string-array name="backgroundWidget">
         <item>Grey</item>
         <item>Transparent</item>

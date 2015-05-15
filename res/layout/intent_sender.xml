@@ -108,4 +108,3 @@
                 android:text="@string/intent_sender_startactivity_text" />
     </LinearLayout>
 </ScrollView>
-

@@ -58,7 +58,6 @@
 
     </LinearLayout>
 
-
     <LinearLayout style="@android:style/ButtonBar"
         android:orientation="horizontal"
         android:layout_width="match_parent"

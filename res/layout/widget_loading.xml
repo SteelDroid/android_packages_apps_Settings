@@ -19,13 +19,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/appwidget_bg" >
-    
-	<TextView android:id="@+id/loading"
-	 android:text="@string/settings_license_activity_loading"
-	 android:layout_width="wrap_content"
-	 android:layout_height="wrap_content"
-	/>
+    android:background="@drawable/appwidget_bg">
 
+    <TextView android:id="@+id/loading"
+        android:text="@string/settings_license_activity_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    />
 
 </LinearLayout>

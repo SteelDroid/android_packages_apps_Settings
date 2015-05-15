@@ -55,7 +55,6 @@
                 android:drawablePadding="3dip"
                 android:text="@string/lockpattern_confirm_button_text"/>
 
-
             <!-- left / top button: skip, or re-try -->
             <Button android:id="@+id/footerLeftButton"
                 android:layout_height="wrap_content"
@@ -65,7 +64,6 @@
                 android:ellipsize="marquee"
                 android:singleLine="true"
                 android:text="@string/lockpattern_restart_button_text"/>
-
 
             <!-- message above buttons -->
             <TextView android:id="@+id/footerText"
@@ -87,6 +85,4 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content" />
 
-
 </com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient>
-

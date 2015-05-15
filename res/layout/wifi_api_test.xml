@@ -42,5 +42,4 @@
             android:title="@string/getConnectionInfo"
             android:persistent="false" />
 
-
 </PreferenceScreen>

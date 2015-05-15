@@ -19,8 +19,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@null" 
-	android:orientation="vertical">
+    android:background="@null"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/btn_w1"
@@ -29,7 +29,7 @@
         android:layout_height="0dip"
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:focusable="true">
 
         <ImageView
@@ -52,7 +52,7 @@
         android:id="@+id/sep_w1"
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider_v"
         />
 
@@ -63,7 +63,7 @@
         android:layout_height="0dip"
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:focusable="true">
 
         <ImageView
@@ -86,7 +86,7 @@
         android:id="@+id/sep_w2"
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider_v"
         />
 
@@ -97,9 +97,8 @@
         android:layout_height="0dip"
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:focusable="true">
-
 
         <ImageView
             android:id="@+id/img_w3"
@@ -122,7 +121,7 @@
         android:id="@+id/sep_w3"
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider_v"
         />
 
@@ -133,9 +132,8 @@
         android:layout_height="0dip"
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:focusable="true">
-
 
         <ImageView
             android:id="@+id/img_w4"
@@ -157,9 +155,9 @@
         android:id="@+id/sep_w4"
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider_v"
-        />    
+        />
 
     <LinearLayout
         android:id="@+id/btn_w5"
@@ -168,9 +166,8 @@
         android:layout_height="0dip"
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:focusable="true">
-
 
         <ImageView
             android:id="@+id/img_w5"
@@ -192,9 +189,9 @@
         android:id="@+id/sep_w5"
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider_v"
-        />    
+        />
 
     <LinearLayout
         android:id="@+id/btn_w6"
@@ -204,7 +201,7 @@
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone">        
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/img_w6"
@@ -218,7 +215,7 @@
             android:id="@+id/ind_w6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-           android:scaleType="fitXY"
+            android:scaleType="fitXY"
             />
         </LinearLayout>
 
@@ -237,9 +234,8 @@
         android:layout_height="0dip"
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:focusable="true">
-
 
         <ImageView
             android:id="@+id/img_w7"
@@ -261,7 +257,7 @@
         android:id="@+id/sep_w7"
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider_v"
         />
 
@@ -309,12 +305,11 @@
         android:focusable="true"
         android:visibility="gone">
 
-
         <ImageView
             android:id="@+id/img_w9"
             android:layout_width="0dip"
             android:layout_height="match_parent"
-           android:layout_weight="1"
+            android:layout_weight="1"
             android:scaleType="center"
             />
 
@@ -344,7 +339,6 @@
         android:focusable="true"
         android:visibility="gone">
 
-
         <ImageView
             android:id="@+id/img_w10"
             android:layout_width="0dip"
@@ -357,9 +351,8 @@
             android:id="@+id/ind_w10"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-           android:scaleType="fitXY"
+            android:scaleType="fitXY"
             />
     </LinearLayout>
-
 
 </LinearLayout>

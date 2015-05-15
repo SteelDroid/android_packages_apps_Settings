@@ -112,7 +112,6 @@
     <!-- Title for a notification shown. -->
     <string name="sdcard_setting" product="default">SD card</string>
 
-
     <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
     <string name="battery_info_status_label">Battery status:</string>
     <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
@@ -141,7 +140,6 @@
     <string name="battery_info_awake_plugged">Awake time when charging:</string>
     <!-- Battery Info screen. Label for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
     <string name="battery_info_screen_on">Screen ON time:</string>
-
 
     <!-- Battery Info screen. Value for a status item.  Used for diagnostic info screens, precise translation isn't needed -->
     <string name="battery_info_status_unknown">Unknown</string>
@@ -595,7 +593,6 @@
     <!-- Summary for PreferenceScreen to changeecurity method: None/Pattern/PIN/Password -->
     <string name="unlock_set_unlock_launch_picker_change_summary">Change or disable pattern, PIN, or password security</string>
 
-
     <!-- Title for preference that disables unlock security -->
     <string name="unlock_set_unlock_none_title">None</string>
     <!-- Summary for preference that disables unlock security -->
@@ -973,7 +970,6 @@
     <string name="wifi_tether_configure_subtext"><xliff:g id="network_ssid">%1$s</xliff:g> <xliff:g id="network_security">%2$s</xliff:g> portable Wi-Fi hotspot</string>
     <!-- Default access point SSID used for tethering -->
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>
-
 
     <!-- Do not translate. Used for diagnostic screens, precise translation is not necessary
          Wi-Fi Testing on the diagnostic screen-->
@@ -1615,7 +1611,7 @@
     <string name="location_gps_source_summary">Use external bluetooth gps mouse instead of internal as location provider.</string>
     <string name="location_gps_source_notification_title">Alert</string>
     <string name="location_gps_source_notification">GPS source has been switched! GPS will be disabled. Please re-enable before use!</string>
-    
+
     <!-- About --> <skip />
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
     <string name="about_settings">About phone</string>
@@ -2267,7 +2263,7 @@ found in the list of installed applications.</string>
     <!-- XXX remove? Strings used for displaying usage statistics -->
     <string name="usage_stats_label">Usage statistics</string>
 
-    <!-- In the Testing screen. The item title of the activity that shows usage statistics.  -->
+    <!-- In the Testing screen. The item title of the activity that shows usage statistics. -->
     <string name="testing_usage_stats">Usage statistics</string>
     <!-- label for text to indicate sort options -->
     <string name="display_order_text">Sort by:</string>
@@ -3052,7 +3048,7 @@ found in the list of installed applications.</string>
     <!-- Summary for PreferenceScreen to change security method: None/Pattern/Finger/PIN/Password -->
     <string name="lockfinger_unlock_set_unlock_launch_picker_change_summary">Change or disable pattern, finger, PIN, or password security</string>
 
-    <!--  Title and summary for preference that guides the user through creating an unlock finger -->
+    <!-- Title and summary for preference that guides the user through creating an unlock finger -->
     <string name="lockfinger_unlock_set_unlock_finger_title">Finger</string>
     <string name="lockfinger_unlock_set_unlock_finger_summary">Swipe finger to unlock screen</string>
 

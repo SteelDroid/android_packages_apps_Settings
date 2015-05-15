@@ -19,7 +19,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/appwidget_bg" >
+    android:background="@drawable/appwidget_bg">
 
     <LinearLayout
         android:id="@+id/btn_w1"
@@ -29,7 +29,7 @@
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:orientation="vertical">
 
         <ImageView
@@ -52,7 +52,7 @@
         android:id="@+id/sep_w1"
         android:layout_width="1dip"
         android:layout_height="match_parent"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider"
         />
 
@@ -64,7 +64,7 @@
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:orientation="vertical">
 
         <ImageView
@@ -87,7 +87,7 @@
         android:id="@+id/sep_w2"
         android:layout_width="1dip"
         android:layout_height="match_parent"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider"
         />
 
@@ -99,7 +99,7 @@
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:orientation="vertical">
 
         <ImageView
@@ -123,7 +123,7 @@
         android:id="@+id/sep_w3"
         android:layout_width="1dip"
         android:layout_height="match_parent"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider"
         />
 
@@ -135,7 +135,7 @@
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:orientation="vertical">
 
         <ImageView
@@ -158,9 +158,9 @@
         android:id="@+id/sep_w4"
         android:layout_width="1dip"
         android:layout_height="match_parent"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider"
-        />    
+        />
 
     <LinearLayout
         android:id="@+id/btn_w5"
@@ -170,7 +170,7 @@
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:orientation="vertical">
 
         <ImageView
@@ -193,9 +193,9 @@
         android:id="@+id/sep_w5"
         android:layout_width="1dip"
         android:layout_height="match_parent"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider"
-        />    
+        />
 
     <LinearLayout
         android:id="@+id/btn_w6"
@@ -241,7 +241,7 @@
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:orientation="vertical">
 
         <ImageView
@@ -264,7 +264,7 @@
         android:id="@+id/sep_w7"
         android:layout_width="1dip"
         android:layout_height="match_parent"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider"
         />
 
@@ -276,7 +276,7 @@
         android:background="@drawable/appwidget_button_center"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:orientation="vertical">
 
         <ImageView
@@ -299,7 +299,7 @@
         android:id="@+id/sep_w8"
         android:layout_width="1dip"
         android:layout_height="match_parent"
-        android:visibility="gone"        
+        android:visibility="gone"
         android:background="@drawable/appwidget_settings_divider"
         />
 

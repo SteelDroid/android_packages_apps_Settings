@@ -169,7 +169,7 @@
                     android:maxLines="1" />
 
             </LinearLayout>
-            <!-- Clear data and install location buttons  -->
+            <!-- Clear data and install location buttons -->
             <include
                 layout="@layout/two_buttons_panel"
                 android:id="@+id/data_buttons_panel"/>
@@ -282,4 +282,3 @@
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
-
